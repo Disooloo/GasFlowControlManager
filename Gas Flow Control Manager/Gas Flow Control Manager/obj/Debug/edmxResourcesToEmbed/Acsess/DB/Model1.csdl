@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBGasFlowControlManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="GasCompressors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Manufacturer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MaxPressure" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="MaxFlowRate" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Efficiency" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="InstallationDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Parameters" Relationship="Self.FK__Parameter__GasCo__66603565" FromRole="GasCompressors" ToRole="Parameters" />
+    <NavigationProperty Name="States" Relationship="Self.FK__States__GasCompr__693CA210" FromRole="GasCompressors" ToRole="States" />
+  </EntityType>
+  <EntityType Name="Parameters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="GasCompressorId" Type="Int32" />
+    <Property Name="ParameterName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ParameterValue" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="GasCompressors" Relationship="Self.FK__Parameter__GasCo__66603565" FromRole="Parameters" ToRole="GasCompressors" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="GasCompressorId" Type="Int32" />
+    <Property Name="StateName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="StartDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EndDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="GasCompressors" Relationship="Self.FK__States__GasCompr__693CA210" FromRole="States" ToRole="GasCompressors" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Position" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Login" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="RegistrationDate" Type="DateTime" Precision="0" />
+    <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK__Parameter__GasCo__66603565">
+    <End Role="GasCompressors" Type="Self.GasCompressors" Multiplicity="0..1" />
+    <End Role="Parameters" Type="Self.Parameters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GasCompressors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parameters">
+        <PropertyRef Name="GasCompressorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__States__GasCompr__693CA210">
+    <End Role="GasCompressors" Type="Self.GasCompressors" Multiplicity="0..1" />
+    <End Role="States" Type="Self.States" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GasCompressors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="States">
+        <PropertyRef Name="GasCompressorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBGasFlowControlManagerEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="GasCompressors" EntityType="Self.GasCompressors" />
+    <EntitySet Name="Parameters" EntityType="Self.Parameters" />
+    <EntitySet Name="States" EntityType="Self.States" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK__Parameter__GasCo__66603565" Association="Self.FK__Parameter__GasCo__66603565">
+      <End Role="GasCompressors" EntitySet="GasCompressors" />
+      <End Role="Parameters" EntitySet="Parameters" />
+    </AssociationSet>
+    <AssociationSet Name="FK__States__GasCompr__693CA210" Association="Self.FK__States__GasCompr__693CA210">
+      <End Role="GasCompressors" EntitySet="GasCompressors" />
+      <End Role="States" EntitySet="States" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

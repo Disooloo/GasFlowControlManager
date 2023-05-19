@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище DBGasFlowControlManagerModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="GasCompressors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+    <Property Name="Manufacturer" Type="varchar" MaxLength="255" />
+    <Property Name="MaxPressure" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="MaxFlowRate" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Efficiency" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="InstallationDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Parameters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="GasCompressorId" Type="int" />
+    <Property Name="ParameterName" Type="varchar" MaxLength="255" />
+    <Property Name="ParameterValue" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="GasCompressorId" Type="int" />
+    <Property Name="StateName" Type="varchar" MaxLength="255" />
+    <Property Name="StartDateTime" Type="datetime" />
+    <Property Name="EndDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="255" />
+    <Property Name="Position" Type="varchar" MaxLength="255" />
+    <Property Name="Login" Type="varchar" MaxLength="255" />
+    <Property Name="Password" Type="varchar" MaxLength="255" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="RegistrationDate" Type="date" />
+    <Property Name="LastLoginDate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__Parameter__GasCo__66603565">
+    <End Role="GasCompressors" Type="Self.GasCompressors" Multiplicity="0..1" />
+    <End Role="Parameters" Type="Self.Parameters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GasCompressors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parameters">
+        <PropertyRef Name="GasCompressorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__States__GasCompr__693CA210">
+    <End Role="GasCompressors" Type="Self.GasCompressors" Multiplicity="0..1" />
+    <End Role="States" Type="Self.States" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GasCompressors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="States">
+        <PropertyRef Name="GasCompressorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище DBGasFlowControlManagerModelContainer">
+    <EntitySet Name="GasCompressors" EntityType="Self.GasCompressors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parameters" EntityType="Self.Parameters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Parameter__GasCo__66603565" Association="Self.FK__Parameter__GasCo__66603565">
+      <End Role="GasCompressors" EntitySet="GasCompressors" />
+      <End Role="Parameters" EntitySet="Parameters" />
+    </AssociationSet>
+    <AssociationSet Name="FK__States__GasCompr__693CA210" Association="Self.FK__States__GasCompr__693CA210">
+      <End Role="GasCompressors" EntitySet="GasCompressors" />
+      <End Role="States" EntitySet="States" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

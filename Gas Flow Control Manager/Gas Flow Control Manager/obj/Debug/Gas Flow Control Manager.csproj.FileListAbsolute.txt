@@ -34,3 +34,4 @@ D:\Project\Git\Gas Flow Control Manager\Gas Flow Control Manager\Gas Flow Contro
 D:\Project\Git\Gas Flow Control Manager\Gas Flow Control Manager\Gas Flow Control Manager\obj\Debug\App.baml
 D:\Project\Git\Gas Flow Control Manager\Gas Flow Control Manager\Gas Flow Control Manager\obj\Debug\Acsess\View\Pages\HomeListAgregats.g.cs
 D:\Project\Git\Gas Flow Control Manager\Gas Flow Control Manager\Gas Flow Control Manager\obj\Debug\Acsess\View\Pages\HomeListAgregats.baml
+D:\Project\Git\Gas Flow Control Manager\Gas Flow Control Manager\Gas Flow Control Manager\obj\Debug\Gas Flow Control Manager_Content.g.cs

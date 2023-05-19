@@ -40,7 +40,18 @@
                     <materialDesign:PackIcon Kind="ArrowProjectileMultiple" 
                                              Margin="5 0" Height="20" Width="20"/>
                 </TextBlock>
-               
+                <TextBlock Text="Логи" 
+                           FontSize="32"
+                           Foreground="#AFA2FF"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Margin="60 0 0 0"
+                           Name="Log"
+                           Cursor="Hand">
+                    <materialDesign:PackIcon Kind="LogicGateAnd" 
+                                             Margin="5 0" Height="20" Width="20"/>
+                </TextBlock>
+
                 <TextBlock Text="Выйти" 
                            FontSize="32"
                            Foreground="#AFA2FF"
