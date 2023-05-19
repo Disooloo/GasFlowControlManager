@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GasFlowControlManager.Acsess.View.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,17 @@ namespace GasFlowControlManager
         public MainWindow()
         {
             InitializeComponent();
+
+            MainFrame.Navigate(new HomeListAgregats());
+            Manager.MainFrame = MainFrame;
         }
+
+        private void Emulator_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
+
+        }
+
+
     }
 }

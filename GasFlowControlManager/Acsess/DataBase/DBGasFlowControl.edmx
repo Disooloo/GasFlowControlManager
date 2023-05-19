@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище DBGasFlowControlManagerModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище DBGasFlowControlManagerModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="GasCompressors">
           <Key>
             <PropertyRef Name="Id" />
@@ -16,6 +16,9 @@
           <Property Name="MaxFlowRate" Type="decimal" Precision="10" Scale="2" />
           <Property Name="Efficiency" Type="decimal" Precision="5" Scale="2" />
           <Property Name="InstallationDate" Type="date" />
+          <Property Name="CurrentFlowRate" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CurrentPressure" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CurrentEfficiency" Type="decimal" Precision="5" Scale="2" />
         </EntityType>
         <EntityType Name="Parameters">
           <Key>
@@ -98,8 +101,7 @@
             <End Role="States" EntitySet="States" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBGasFlowControlManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -116,6 +118,9 @@
           <Property Name="InstallationDate" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Parameters" Relationship="Self.FK__Parameter__GasCo__66603565" FromRole="GasCompressors" ToRole="Parameters" />
           <NavigationProperty Name="States" Relationship="Self.FK__States__GasCompr__693CA210" FromRole="GasCompressors" ToRole="States" />
+          <Property Name="CurrentFlowRate" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="CurrentPressure" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="CurrentEfficiency" Type="Decimal" Precision="5" Scale="2" />
         </EntityType>
         <EntityType Name="Parameters">
           <Key>
@@ -209,6 +214,9 @@
           <EntitySetMapping Name="GasCompressors">
             <EntityTypeMapping TypeName="DBGasFlowControlManagerModel.GasCompressors">
               <MappingFragment StoreEntitySet="GasCompressors">
+                <ScalarProperty Name="CurrentEfficiency" ColumnName="CurrentEfficiency" />
+                <ScalarProperty Name="CurrentPressure" ColumnName="CurrentPressure" />
+                <ScalarProperty Name="CurrentFlowRate" ColumnName="CurrentFlowRate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />

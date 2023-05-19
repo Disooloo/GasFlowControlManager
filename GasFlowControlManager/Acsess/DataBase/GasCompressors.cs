@@ -28,6 +28,9 @@ namespace GasFlowControlManager.Acsess.DataBase
         public Nullable<decimal> MaxFlowRate { get; set; }
         public Nullable<decimal> Efficiency { get; set; }
         public Nullable<System.DateTime> InstallationDate { get; set; }
+        public Nullable<decimal> CurrentFlowRate { get; set; }
+        public Nullable<decimal> CurrentPressure { get; set; }
+        public Nullable<decimal> CurrentEfficiency { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Parameters> Parameters { get; set; }
