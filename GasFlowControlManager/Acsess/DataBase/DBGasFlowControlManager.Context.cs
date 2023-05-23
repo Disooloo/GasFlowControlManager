@@ -13,18 +13,17 @@ namespace GasFlowControlManager.Acsess.DataBase
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBGasFlowControlManagerEntities : DbContext
+    public partial class DBGasFlowControlManagerEntities1 : DbContext
     {
-        public static DBGasFlowControlManagerEntities _context;
-
-        public static DBGasFlowControlManagerEntities GetContext()
+        public static DBGasFlowControlManagerEntities1 _context;
+        public static DBGasFlowControlManagerEntities1 GetContext()
         {
             if (_context == null)
-                _context = new DBGasFlowControlManagerEntities();
+                _context = new DBGasFlowControlManagerEntities1();
             return _context;
         }
-        public DBGasFlowControlManagerEntities()
-            : base("name=DBGasFlowControlManagerEntities")
+        public DBGasFlowControlManagerEntities1()
+            : base("name=DBGasFlowControlManagerEntities1")
         {
         }
     
@@ -35,7 +34,8 @@ namespace GasFlowControlManager.Acsess.DataBase
     
         public virtual DbSet<GasCompressors> GasCompressors { get; set; }
         public virtual DbSet<Parameters> Parameters { get; set; }
-        public virtual DbSet<States> States { get; set; }
+        public virtual DbSet<ParametersLogs> ParametersLogs { get; set; }
+        public virtual DbSet<StatesLogs> StatesLogs { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }

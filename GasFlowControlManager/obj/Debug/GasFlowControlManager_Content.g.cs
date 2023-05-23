@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("acsess/database/dbgasflowcontrol.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("acsess/database/dbgasflowcontrol.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("acsess/database/dbgasflowcontrolmanager.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("acsess/database/dbgasflowcontrolmanager.tt")]
 
 

@@ -12,13 +12,13 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="255" />
           <Property Name="Manufacturer" Type="varchar" MaxLength="255" />
-          <Property Name="MaxPressure" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="MaxFlowRate" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Efficiency" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="MaxPressure" Type="float" />
+          <Property Name="MaxFlowRate" Type="float" />
+          <Property Name="Efficiency" Type="float" />
           <Property Name="InstallationDate" Type="date" />
-          <Property Name="CurrentFlowRate" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="CurrentPressure" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="CurrentEfficiency" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="CurrentFlowRate" Type="float" />
+          <Property Name="CurrentPressure" Type="float" />
+          <Property Name="CurrentEfficiency" Type="float" />
         </EntityType>
         <EntityType Name="Parameters">
           <Key>
@@ -27,9 +27,18 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="GasCompressorId" Type="int" />
           <Property Name="ParameterName" Type="varchar" MaxLength="255" />
-          <Property Name="ParameterValue" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ParameterValue" Type="float" />
         </EntityType>
-        <EntityType Name="States">
+        <EntityType Name="ParametersLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="UserName" Type="varchar" MaxLength="255" />
+          <Property Name="LoginDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="StatesLogs">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -38,6 +47,8 @@
           <Property Name="StateName" Type="varchar" MaxLength="255" />
           <Property Name="StartDateTime" Type="datetime" />
           <Property Name="EndDateTime" Type="datetime" />
+          <Property Name="CurrentPower" Type="float" />
+          <Property Name="CurrentPressure" Type="float" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -53,7 +64,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FullName" Type="varchar" MaxLength="255" />
           <Property Name="Position" Type="varchar" MaxLength="255" />
           <Property Name="Login" Type="varchar" MaxLength="255" />
@@ -62,7 +73,7 @@
           <Property Name="RegistrationDate" Type="date" />
           <Property Name="LastLoginDate" Type="datetime" />
         </EntityType>
-        <Association Name="FK__Parameter__GasCo__66603565">
+        <Association Name="FK__Parameter__GasCo__07C12930">
           <End Role="GasCompressors" Type="Self.GasCompressors" Multiplicity="0..1" />
           <End Role="Parameters" Type="Self.Parameters" Multiplicity="*" />
           <ReferentialConstraint>
@@ -74,14 +85,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__States__GasCompr__693CA210">
+        <Association Name="FK__Parameter__UserI__0A9D95DB">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="ParametersLogs" Type="Self.ParametersLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ParametersLogs">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StatesLog__GasCo__0D7A0286">
           <End Role="GasCompressors" Type="Self.GasCompressors" Multiplicity="0..1" />
-          <End Role="States" Type="Self.States" Multiplicity="*" />
+          <End Role="StatesLogs" Type="Self.StatesLogs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GasCompressors">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="States">
+            <Dependent Role="StatesLogs">
               <PropertyRef Name="GasCompressorId" />
             </Dependent>
           </ReferentialConstraint>
@@ -89,16 +112,21 @@
         <EntityContainer Name="Хранилище DBGasFlowControlManagerModelContainer">
           <EntitySet Name="GasCompressors" EntityType="Self.GasCompressors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Parameters" EntityType="Self.Parameters" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ParametersLogs" EntityType="Self.ParametersLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatesLogs" EntityType="Self.StatesLogs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Parameter__GasCo__66603565" Association="Self.FK__Parameter__GasCo__66603565">
+          <AssociationSet Name="FK__Parameter__GasCo__07C12930" Association="Self.FK__Parameter__GasCo__07C12930">
             <End Role="GasCompressors" EntitySet="GasCompressors" />
             <End Role="Parameters" EntitySet="Parameters" />
           </AssociationSet>
-          <AssociationSet Name="FK__States__GasCompr__693CA210" Association="Self.FK__States__GasCompr__693CA210">
+          <AssociationSet Name="FK__Parameter__UserI__0A9D95DB" Association="Self.FK__Parameter__UserI__0A9D95DB">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ParametersLogs" EntitySet="ParametersLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StatesLog__GasCo__0D7A0286" Association="Self.FK__StatesLog__GasCo__0D7A0286">
             <End Role="GasCompressors" EntitySet="GasCompressors" />
-            <End Role="States" EntitySet="States" />
+            <End Role="StatesLogs" EntitySet="StatesLogs" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -112,15 +140,15 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Manufacturer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="MaxPressure" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="MaxFlowRate" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="Efficiency" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="MaxPressure" Type="Double" />
+          <Property Name="MaxFlowRate" Type="Double" />
+          <Property Name="Efficiency" Type="Double" />
           <Property Name="InstallationDate" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Parameters" Relationship="Self.FK__Parameter__GasCo__66603565" FromRole="GasCompressors" ToRole="Parameters" />
-          <NavigationProperty Name="States" Relationship="Self.FK__States__GasCompr__693CA210" FromRole="GasCompressors" ToRole="States" />
-          <Property Name="CurrentFlowRate" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="CurrentPressure" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="CurrentEfficiency" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="CurrentFlowRate" Type="Double" />
+          <Property Name="CurrentPressure" Type="Double" />
+          <Property Name="CurrentEfficiency" Type="Double" />
+          <NavigationProperty Name="Parameters" Relationship="Self.FK__Parameter__GasCo__07C12930" FromRole="GasCompressors" ToRole="Parameters" />
+          <NavigationProperty Name="StatesLogs" Relationship="Self.FK__StatesLog__GasCo__0D7A0286" FromRole="GasCompressors" ToRole="StatesLogs" />
         </EntityType>
         <EntityType Name="Parameters">
           <Key>
@@ -129,10 +157,20 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="GasCompressorId" Type="Int32" />
           <Property Name="ParameterName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="ParameterValue" Type="Decimal" Precision="10" Scale="2" />
-          <NavigationProperty Name="GasCompressors" Relationship="Self.FK__Parameter__GasCo__66603565" FromRole="Parameters" ToRole="GasCompressors" />
+          <Property Name="ParameterValue" Type="Double" />
+          <NavigationProperty Name="GasCompressors" Relationship="Self.FK__Parameter__GasCo__07C12930" FromRole="Parameters" ToRole="GasCompressors" />
         </EntityType>
-        <EntityType Name="States">
+        <EntityType Name="ParametersLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LoginDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Parameter__UserI__0A9D95DB" FromRole="ParametersLogs" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="StatesLogs">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -141,7 +179,9 @@
           <Property Name="StateName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="StartDateTime" Type="DateTime" Precision="3" />
           <Property Name="EndDateTime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="GasCompressors" Relationship="Self.FK__States__GasCompr__693CA210" FromRole="States" ToRole="GasCompressors" />
+          <Property Name="CurrentPower" Type="Double" />
+          <Property Name="CurrentPressure" Type="Double" />
+          <NavigationProperty Name="GasCompressors" Relationship="Self.FK__StatesLog__GasCo__0D7A0286" FromRole="StatesLogs" ToRole="GasCompressors" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -165,8 +205,9 @@
           <Property Name="IsAdmin" Type="Boolean" />
           <Property Name="RegistrationDate" Type="DateTime" Precision="0" />
           <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ParametersLogs" Relationship="Self.FK__Parameter__UserI__0A9D95DB" FromRole="Users" ToRole="ParametersLogs" />
         </EntityType>
-        <Association Name="FK__Parameter__GasCo__66603565">
+        <Association Name="FK__Parameter__GasCo__07C12930">
           <End Role="GasCompressors" Type="Self.GasCompressors" Multiplicity="0..1" />
           <End Role="Parameters" Type="Self.Parameters" Multiplicity="*" />
           <ReferentialConstraint>
@@ -178,31 +219,48 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__States__GasCompr__693CA210">
+        <Association Name="FK__StatesLog__GasCo__0D7A0286">
           <End Role="GasCompressors" Type="Self.GasCompressors" Multiplicity="0..1" />
-          <End Role="States" Type="Self.States" Multiplicity="*" />
+          <End Role="StatesLogs" Type="Self.StatesLogs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GasCompressors">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="States">
+            <Dependent Role="StatesLogs">
               <PropertyRef Name="GasCompressorId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBGasFlowControlManagerEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK__Parameter__UserI__0A9D95DB">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="ParametersLogs" Type="Self.ParametersLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ParametersLogs">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBGasFlowControlManagerEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="GasCompressors" EntityType="Self.GasCompressors" />
           <EntitySet Name="Parameters" EntityType="Self.Parameters" />
-          <EntitySet Name="States" EntityType="Self.States" />
+          <EntitySet Name="ParametersLogs" EntityType="Self.ParametersLogs" />
+          <EntitySet Name="StatesLogs" EntityType="Self.StatesLogs" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Users" EntityType="Self.Users" />
-          <AssociationSet Name="FK__Parameter__GasCo__66603565" Association="Self.FK__Parameter__GasCo__66603565">
+          <AssociationSet Name="FK__Parameter__GasCo__07C12930" Association="Self.FK__Parameter__GasCo__07C12930">
             <End Role="GasCompressors" EntitySet="GasCompressors" />
             <End Role="Parameters" EntitySet="Parameters" />
           </AssociationSet>
-          <AssociationSet Name="FK__States__GasCompr__693CA210" Association="Self.FK__States__GasCompr__693CA210">
+          <AssociationSet Name="FK__StatesLog__GasCo__0D7A0286" Association="Self.FK__StatesLog__GasCo__0D7A0286">
             <End Role="GasCompressors" EntitySet="GasCompressors" />
-            <End Role="States" EntitySet="States" />
+            <End Role="StatesLogs" EntitySet="StatesLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Parameter__UserI__0A9D95DB" Association="Self.FK__Parameter__UserI__0A9D95DB">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ParametersLogs" EntitySet="ParametersLogs" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -210,13 +268,10 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище DBGasFlowControlManagerModelContainer" CdmEntityContainer="DBGasFlowControlManagerEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DBGasFlowControlManagerModelContainer" CdmEntityContainer="DBGasFlowControlManagerEntities1">
           <EntitySetMapping Name="GasCompressors">
             <EntityTypeMapping TypeName="DBGasFlowControlManagerModel.GasCompressors">
               <MappingFragment StoreEntitySet="GasCompressors">
-                <ScalarProperty Name="CurrentEfficiency" ColumnName="CurrentEfficiency" />
-                <ScalarProperty Name="CurrentPressure" ColumnName="CurrentPressure" />
-                <ScalarProperty Name="CurrentFlowRate" ColumnName="CurrentFlowRate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
@@ -224,6 +279,9 @@
                 <ScalarProperty Name="MaxFlowRate" ColumnName="MaxFlowRate" />
                 <ScalarProperty Name="Efficiency" ColumnName="Efficiency" />
                 <ScalarProperty Name="InstallationDate" ColumnName="InstallationDate" />
+                <ScalarProperty Name="CurrentFlowRate" ColumnName="CurrentFlowRate" />
+                <ScalarProperty Name="CurrentPressure" ColumnName="CurrentPressure" />
+                <ScalarProperty Name="CurrentEfficiency" ColumnName="CurrentEfficiency" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -237,14 +295,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="States">
-            <EntityTypeMapping TypeName="DBGasFlowControlManagerModel.States">
-              <MappingFragment StoreEntitySet="States">
+          <EntitySetMapping Name="ParametersLogs">
+            <EntityTypeMapping TypeName="DBGasFlowControlManagerModel.ParametersLogs">
+              <MappingFragment StoreEntitySet="ParametersLogs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatesLogs">
+            <EntityTypeMapping TypeName="DBGasFlowControlManagerModel.StatesLogs">
+              <MappingFragment StoreEntitySet="StatesLogs">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="GasCompressorId" ColumnName="GasCompressorId" />
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
                 <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+                <ScalarProperty Name="CurrentPower" ColumnName="CurrentPower" />
+                <ScalarProperty Name="CurrentPressure" ColumnName="CurrentPressure" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

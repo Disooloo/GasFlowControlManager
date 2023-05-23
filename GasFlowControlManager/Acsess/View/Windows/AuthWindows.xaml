@@ -14,49 +14,90 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         
+        Title="LoginWindow" Height="550" Width="800" AllowsTransparency="True"
+        WindowStyle="None"
+        MouseLeftButtonDown="dragme"
           
-        Title="Авторизация в систему..." Height="750"  Width="1300" 
         WindowStartupLocation="CenterScreen" 
-        ResizeMode="CanResize" 
-        Icon="/Acsess/Image/icon.ico" 
-        WindowState="Maximized">
+        ResizeMode="NoResize" 
+        Icon="/Acsess/Image/icon.ico"
+        >
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="323*"/>
-            <ColumnDefinition Width="327*"/>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="1" >
-            <Border Margin="20"
-                    CornerRadius="20"
-                    Background="DarkGray"
-                    >
-                <Grid>
-                    <StackPanel>
-                        <TextBlock Text="Auth"
-                           Foreground="#fff"
-                           FontSize="52"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Top"
-                           Margin="0 50"/>
-                        <DockPanel>
-                            <TextBlock Text="Login"
-                                   Margin="20 0"
-                                   FontSize="25"
-                                   Foreground="#fff"/>
-                            <TextBox Name="loginBox" Margin="20 0"/>
-                        </DockPanel>
-
-                    </StackPanel>
-
-                    <Button HorizontalAlignment="Center"
-                            VerticalAlignment="Bottom"
-                            Margin="20" Content="Auth" Background="Transparent"
-                            Cursor="Hand"/>
-                </Grid>
-            </Border>
+        <Grid Name="Closing"
+              MouseDown="ClickMouseClosing_MouseDown">
+                
+            <materialDesign:PackIcon Kind="Close"
+                                     Cursor="Hand"
+                                     Name="ClickMouseClosing"
+                                     Width="25"
+                                     Height="25"
+                                     Foreground="{Binding ElementName=loginBox, Path=BorderBrush}"
+                                     VerticalAlignment="Top" Margin="10,5,10,0" />
         </Grid>
-      
 
+        <materialDesign:Card Grid.Column="1"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch">
+            <Image Source="/Acsess/Image/hr.jpg" />
+        </materialDesign:Card>
+
+        <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+                       HorizontalAlignment="Center">
+                Авторизация
+            </TextBlock>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,20,0,0" HorizontalAlignment="Center">
+                <materialDesign:PackIcon Grid.Row="1" Grid.Column="0"
+                                         Kind="Account"
+                                         Foreground="{Binding ElementName=loginBox, Path=BorderBrush}"
+                                         VerticalAlignment="Center" Margin="10,5,10,0">
+
+                </materialDesign:PackIcon>
+                <TextBox
+                    Name="loginBox"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    materialDesign:HintAssist.Hint="Логин"
+                    Width="140">
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,20,0,0" HorizontalAlignment="Center">
+                <materialDesign:PackIcon Grid.Row="1" Grid.Column="0"
+                                         Kind="Key"
+                                         Foreground="{Binding ElementName=passwordBox, Path=BorderBrush}"
+                                         VerticalAlignment="Center" Margin="10,5,10,0">
+
+                </materialDesign:PackIcon>
+                <PasswordBox Name="passwordBox"
+                             materialDesign:HintAssist.Hint="Пароль"
+                             materialDesign:HintAssist.Foreground="Green"
+                             materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                             Width="140"
+                             IsEnabled="True"
+                             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}">
+                </PasswordBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="90,20,0,0" HorizontalAlignment="Center">
+                <CheckBox Content="Запомнить меня" HorizontalAlignment="Stretch" Cursor="Hand"></CheckBox>
+                <Button Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+                        materialDesign:ButtonAssist.CornerRadius="20"
+                        Height="40" Width="80" Margin="50,0,0,0"
+                        Click="loginEnter">
+                    Войти
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

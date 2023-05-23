@@ -18,23 +18,23 @@ namespace GasFlowControlManager.Acsess.DataBase
         public GasCompressors()
         {
             this.Parameters = new HashSet<Parameters>();
-            this.States = new HashSet<States>();
+            this.StatesLogs = new HashSet<StatesLogs>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
         public string Manufacturer { get; set; }
-        public Nullable<decimal> MaxPressure { get; set; }
-        public Nullable<decimal> MaxFlowRate { get; set; }
-        public Nullable<decimal> Efficiency { get; set; }
+        public Nullable<double> MaxPressure { get; set; }
+        public Nullable<double> MaxFlowRate { get; set; }
+        public Nullable<double> Efficiency { get; set; }
         public Nullable<System.DateTime> InstallationDate { get; set; }
-        public Nullable<decimal> CurrentFlowRate { get; set; }
-        public Nullable<decimal> CurrentPressure { get; set; }
-        public Nullable<decimal> CurrentEfficiency { get; set; }
+        public Nullable<double> CurrentFlowRate { get; set; }
+        public Nullable<double> CurrentPressure { get; set; }
+        public Nullable<double> CurrentEfficiency { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Parameters> Parameters { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<States> States { get; set; }
+        public virtual ICollection<StatesLogs> StatesLogs { get; set; }
     }
 }

@@ -12,13 +12,15 @@ namespace GasFlowControlManager.Acsess.DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class States
+    public partial class StatesLogs
     {
         public int Id { get; set; }
         public Nullable<int> GasCompressorId { get; set; }
         public string StateName { get; set; }
         public Nullable<System.DateTime> StartDateTime { get; set; }
         public Nullable<System.DateTime> EndDateTime { get; set; }
+        public Nullable<double> CurrentPower { get; set; }
+        public Nullable<double> CurrentPressure { get; set; }
     
         public virtual GasCompressors GasCompressors { get; set; }
     }
