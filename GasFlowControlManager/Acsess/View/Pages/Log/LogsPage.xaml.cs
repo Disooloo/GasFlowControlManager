@@ -64,7 +64,6 @@ namespace GasFlowControlManager.Acsess.View.Pages
             }
 
             // Укажите путь и имя файла для сохранения
-            //string filePath = @"D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\Acsess";
             string userProfilePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             string filePath = System.IO.Path.Combine(userProfilePath, @"Desktop\LogsAgr.txt");
             System.IO.File.WriteAllText(filePath, logs);
