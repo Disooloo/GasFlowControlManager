@@ -43,7 +43,7 @@ D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlMana
 D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\HomeListAgregats.baml
 D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Windows\AuthWindows.g.cs
 D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Windows\AuthWindows.baml
-D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Auth\LoginPage.g.cs
-D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Auth\RegistrationPage.g.cs
-D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Auth\LoginPage.baml
-D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Auth\RegistrationPage.baml
+D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Log\LogsPage.g.cs
+D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Log\LogUserPage.g.cs
+D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Log\LogsPage.baml
+D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Log\LogUserPage.baml

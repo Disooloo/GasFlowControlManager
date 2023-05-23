@@ -1,4 +1,5 @@
 ﻿using GasFlowControlManager.Acsess.View.Pages;
+using GasFlowControlManager.Acsess.View.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,16 @@ namespace GasFlowControlManager
 
         }
 
+        private void Log_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new LogsPage());
+        }
 
+        private void Exit_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            AuthWindows authWindows = new AuthWindows();
+            authWindows.Show();
+            this.Close();
+        }
     }
 }

@@ -49,6 +49,7 @@
                            VerticalAlignment="Center"
                            Margin="60 0 0 0"
                            Name="Log"
+                           MouseDown="Log_MouseDown"
                            Cursor="Hand">
                     <materialDesign:PackIcon Kind="LogicGateAnd" 
                                              Margin="5 0" Height="20" Width="20"/>
@@ -61,6 +62,7 @@
                            VerticalAlignment="Center"
                            Margin="60 0 "
                            Name="Exit"
+                           MouseDown="Exit_MouseDown"
                            Cursor="Hand">
                     <materialDesign:PackIcon Kind="ExitRun" 
                                              Margin="5 0" Height="20" Width="20"/>

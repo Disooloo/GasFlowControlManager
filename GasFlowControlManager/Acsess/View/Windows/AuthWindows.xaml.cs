@@ -1,6 +1,5 @@
 ﻿using GasFlowControlManager.Acsess.DataBase;
 using GasFlowControlManager.Acsess.View.Pages;
-using GasFlowControlManager.Acsess.View.Pages.Auth;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
@@ -26,8 +25,6 @@ namespace GasFlowControlManager.Acsess.View.Windows
         public AuthWindows()
         {
             InitializeComponent();
-            //AuthFrame.Navigate(new LoginPage());
-            //Manager.MainFrame = AuthFrame;
         }
 
         private void loginEnter(object sender, RoutedEventArgs e)
@@ -45,7 +42,7 @@ namespace GasFlowControlManager.Acsess.View.Windows
 
                 if (authUser != null && authUser.IsAdmin == true)
                 {
-                    MessageBox.Show(authUser.FullName.ToString() + "| Вы авторизовались под админкой");
+                    MessageBox.Show(authUser.FullName.ToString() + ", Вы авторизовались под админкой");
                     // Update last login date
                     authUser.LastLoginDate = DateTime.Now;
 
