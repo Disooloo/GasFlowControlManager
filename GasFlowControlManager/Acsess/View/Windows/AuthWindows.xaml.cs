@@ -71,7 +71,7 @@ namespace GasFlowControlManager.Acsess.View.Windows
                         }
                     }
 
-                   
+
                 }
                 else if (authUser != null && authUser.IsAdmin == false)
                 {
@@ -93,6 +93,10 @@ namespace GasFlowControlManager.Acsess.View.Windows
                     mainWindow.Show();
                     this.Close();
                 }
+
+                else if (login == "" && pass == "" && authUser == null)
+                    MessageBox.Show("Строка не может быть пустой");
+              
                 else
                 {
                     MessageBox.Show("Неверный логин или пароль");

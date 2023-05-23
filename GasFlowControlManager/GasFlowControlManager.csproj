@@ -218,9 +218,6 @@
       <DependentUpon>DBGasFlowControlManager.edmx</DependentUpon>
       <LastGenOutput>DBGasFlowControlManager.cs</LastGenOutput>
     </Content>
-    <Resource Include="Acsess\log.txt">
-      <Generator>MSBuild:Compile</Generator>
-    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />
