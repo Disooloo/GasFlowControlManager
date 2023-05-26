@@ -75,8 +75,7 @@ namespace GasFlowControlManager.Acsess.View.Pages.Log
 
         private void Back_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Manager.MainFrame.Navigate(new HomeListAgregats());
-
+            Manager.MainFrame.GoBack();
         }
     }
 }

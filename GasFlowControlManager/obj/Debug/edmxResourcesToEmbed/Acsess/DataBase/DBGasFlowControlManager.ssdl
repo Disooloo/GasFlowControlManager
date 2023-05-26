@@ -14,6 +14,7 @@
     <Property Name="CurrentFlowRate" Type="float" />
     <Property Name="CurrentPressure" Type="float" />
     <Property Name="CurrentEfficiency" Type="float" />
+    <Property Name="Power" Type="bit" />
   </EntityType>
   <EntityType Name="Parameters">
     <Key>

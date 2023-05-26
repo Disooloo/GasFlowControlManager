@@ -15,6 +15,7 @@ namespace GasFlowControlManager.Acsess.DataBase
     
     public partial class DBGasFlowControlManagerEntities2 : DbContext
     {
+
         public static DBGasFlowControlManagerEntities2 _context;
         public static DBGasFlowControlManagerEntities2 GetContext()
         {

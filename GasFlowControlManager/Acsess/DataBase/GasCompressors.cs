@@ -31,6 +31,7 @@ namespace GasFlowControlManager.Acsess.DataBase
         public Nullable<double> CurrentFlowRate { get; set; }
         public Nullable<double> CurrentPressure { get; set; }
         public Nullable<double> CurrentEfficiency { get; set; }
+        public Nullable<bool> Power { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Parameters> Parameters { get; set; }

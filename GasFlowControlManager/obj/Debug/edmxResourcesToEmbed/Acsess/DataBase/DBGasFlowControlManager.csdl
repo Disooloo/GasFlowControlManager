@@ -16,6 +16,7 @@
     <Property Name="CurrentEfficiency" Type="Double" />
     <NavigationProperty Name="Parameters" Relationship="Self.FK__Parameter__GasCo__07C12930" FromRole="GasCompressors" ToRole="Parameters" />
     <NavigationProperty Name="StatesLogs" Relationship="Self.FK__StatesLog__GasCo__0D7A0286" FromRole="GasCompressors" ToRole="StatesLogs" />
+    <Property Name="Power" Type="Boolean" />
   </EntityType>
   <EntityType Name="Parameters">
     <Key>

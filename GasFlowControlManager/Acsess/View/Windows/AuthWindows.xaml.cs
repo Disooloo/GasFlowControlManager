@@ -29,12 +29,12 @@ namespace GasFlowControlManager.Acsess.View.Windows
 
         private void loginEnter(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
 
             string login = loginBox.Text;
             string pass = passwordBox.Password.ToString();
 
             Users authUser = null;
+
 
             using (DBGasFlowControlManagerEntities2 db = new DBGasFlowControlManagerEntities2())
             {
@@ -57,7 +57,7 @@ namespace GasFlowControlManager.Acsess.View.Windows
                     {
                         db.ParametersLogs.Add(parametersLog);
                         db.SaveChanges();
-
+                        MainWindow mainWindow = new MainWindow();
                         mainWindow.Show();
                         this.Close();
                     }
@@ -89,7 +89,7 @@ namespace GasFlowControlManager.Acsess.View.Windows
                     // Добавление записи в ParametersLogs
                     db.ParametersLogs.Add(parametersLog);
                     db.SaveChanges();
-
+                    MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
                     this.Close();
                 }

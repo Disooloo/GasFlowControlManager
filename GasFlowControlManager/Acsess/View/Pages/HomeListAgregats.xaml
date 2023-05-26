@@ -15,6 +15,7 @@
       IsVisibleChanged="Page_IsVisibleChanged"
       Title="HomeListAgregats">
 
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -30,9 +31,10 @@
                 <Grid>
                     <DockPanel HorizontalAlignment="Left"
                                VerticalAlignment="Center">
-                        <TextBlock Text="Name Spase"
+                        <TextBlock Text="V0.0.4"
                                    FontSize="32"
                                    Margin="20 0"
+                                   Name="userName"
                                    Foreground="#AFA2FF"/>
                        
                     </DockPanel>
@@ -48,7 +50,7 @@
                                 BorderThickness="1"
                                 CornerRadius="20"
                                 Padding="5">
-                            <TextBlock Text="19"
+                            <TextBlock Text=""
                                        Name="coutAgr"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
@@ -106,9 +108,20 @@
                             BorderBrush="{StaticResource MaterialDesignDivider}">
                             <Grid>
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Path=Name}"
-                               Foreground="#7A89C2"
-                               Style="{StaticResource MaterialDesignHeadline6TextBlock}" />
+                                    <DockPanel>
+                                        <TextBlock Text="{Binding Path=Name}"
+                                                   Foreground="#7A89C2"
+                                                   Style="{StaticResource MaterialDesignHeadline6TextBlock}" />
+                                        
+                                        <materialDesign:PackIcon Kind="Power"
+                                                                 Height="30" Width="30"
+                                                                 Name="powerStock"
+                                                                 HorizontalAlignment="Right"
+                                                                 VerticalAlignment="Center"
+                                                                 Foreground="Green"
+                                                                 Margin="0 -3"/>
+                                    </DockPanel>
+                                   
                                     <Image Source="/Acsess/Image/23278.jpg"
                                    Width="200" Height="200"
                                    Margin="0 20 0 10"

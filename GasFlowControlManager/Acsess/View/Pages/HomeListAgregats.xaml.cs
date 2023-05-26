@@ -1,10 +1,13 @@
 ﻿using ControlzEx.Standard;
 using GasFlowControlManager.Acsess.DataBase;
 using GasFlowControlManager.Acsess.Managers;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
@@ -26,17 +29,21 @@ namespace GasFlowControlManager.Acsess.View.Pages
     /// </summary>
     public partial class HomeListAgregats : Page
     {
-        public string CurrentEfficiencyValue { get; set; }
+       
 
         public HomeListAgregats()
         {
             InitializeComponent();
+
+
             TextBlock currentPressureTextBlock = FindName("currentPressure") as TextBlock;
             if (currentPressureTextBlock != null)
             {
                 CurrentProsentAndColor(currentPressureTextBlock);
             }
+            convertPower();
         }
+
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -45,6 +52,7 @@ namespace GasFlowControlManager.Acsess.View.Pages
             listBox.ItemsSource = DBGasFlowControlManagerEntities2.GetContext().GasCompressors.OrderByDescending(item => item.Id).ToList();
             coutAgr.Text = DBGasFlowControlManagerEntities2.GetContext().GasCompressors.Count().ToString();
         }
+
 
         private static void CurrentProsentAndColor(TextBlock textBlock)
         {
@@ -93,6 +101,23 @@ namespace GasFlowControlManager.Acsess.View.Pages
                 || p.Id.ToString().Contains(TBox_search.Text.ToLower())).ToList();
 
             listBox.ItemsSource = currentCompany.ToList();
+        }
+
+        private void convertPower()
+        {
+            using (var context = new DBGasFlowControlManagerEntities2())
+            {
+                var listBoxItem = (ListBoxItem)listBox.ItemContainerGenerator.ContainerFromItem(listBox.SelectedItem);
+                var powerStockIcon = listBoxItem?.FindName("powerStock") as PackIcon;
+
+                if (powerStockIcon != null)
+                {
+                    // Установка нового значения Foreground
+                    powerStockIcon.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+            }
+
         }
     }
 }
