@@ -30,8 +30,8 @@ namespace GasFlowControlManager.Acsess.View.Pages
         public HomeListAgregats()
         {
             InitializeComponent();
-            //listBox.ItemsSource = DBGasFlowControlManagerEntities.GetContext().GasCompressors.ToList();
-            listBox.ItemsSource = DBGasFlowControlManagerEntities1.GetContext().GasCompressors.OrderByDescending(item => item.Id).ToList();
+            listBox.ItemsSource = DBGasFlowControlManagerEntities2.GetContext().GasCompressors.ToList();
+            //listBox.ItemsSource = DBGasFlowControlManagerEntities1.GetContext().GasCompressors.OrderByDescending(item => item.Id).ToList();
             TextBlock currentPressureTextBlock = FindName("currentPressure") as TextBlock;
             if (currentPressureTextBlock != null)
             {
@@ -41,7 +41,7 @@ namespace GasFlowControlManager.Acsess.View.Pages
 
         private static void CurrentProsentAndColor(TextBlock textBlock)
         {
-            using (var context = new DBGasFlowControlManagerEntities1())
+            using (var context = new DBGasFlowControlManagerEntities2())
             {
                 var entity = context.GasCompressors.FirstOrDefault();
 

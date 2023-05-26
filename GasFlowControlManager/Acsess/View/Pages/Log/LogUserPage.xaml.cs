@@ -30,9 +30,9 @@ namespace GasFlowControlManager.Acsess.View.Pages.Log
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
-                DBGasFlowControlManagerEntities1.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-            DBlist.ItemsSource = DBGasFlowControlManagerEntities1.GetContext().ParametersLogs.ToList();
-            LogCount.Text = DBGasFlowControlManagerEntities1.GetContext().ParametersLogs.Count().ToString();
+                DBGasFlowControlManagerEntities2.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+            DBlist.ItemsSource = DBGasFlowControlManagerEntities2.GetContext().ParametersLogs.ToList();
+            LogCount.Text = DBGasFlowControlManagerEntities2.GetContext().ParametersLogs.Count().ToString();
         }
 
         private void Download_MouseDown(object sender, MouseButtonEventArgs e)
@@ -50,7 +50,7 @@ namespace GasFlowControlManager.Acsess.View.Pages.Log
             string logs = string.Empty;
 
             // Получите логи из базы данных или другого источника
-            List<ParametersLogs> logsList = DBGasFlowControlManagerEntities1.GetContext().ParametersLogs.ToList();
+            List<ParametersLogs> logsList = DBGasFlowControlManagerEntities2.GetContext().ParametersLogs.ToList();
 
             // Сформируйте текстовое представление логов
             foreach (ParametersLogs log in logsList)
@@ -71,6 +71,12 @@ namespace GasFlowControlManager.Acsess.View.Pages.Log
 
 
             MessageBox.Show("Файл логов сохранен | " + filePath);
+        }
+
+        private void Back_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new HomeListAgregats());
+
         }
     }
 }

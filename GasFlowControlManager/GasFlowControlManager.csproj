@@ -87,6 +87,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Acsess\View\Pages\Admins\UsersListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Acsess\View\Pages\HomeListAgregats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -141,6 +145,9 @@
       <DependentUpon>DBGasFlowControlManager.tt</DependentUpon>
     </Compile>
     <Compile Include="Acsess\Managers\EfficiencyData.cs" />
+    <Compile Include="Acsess\View\Pages\Admins\UsersListPage.xaml.cs">
+      <DependentUpon>UsersListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Acsess\View\Pages\HomeListAgregats.xaml.cs">
       <DependentUpon>HomeListAgregats.xaml</DependentUpon>
     </Compile>
@@ -206,6 +213,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Acsess\Image\meeting-1453895_1280.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Acsess\DataBase\DBGasFlowControlManager.Context.tt">

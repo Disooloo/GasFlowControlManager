@@ -36,7 +36,7 @@ namespace GasFlowControlManager.Acsess.View.Windows
 
             Users authUser = null;
 
-            using (DBGasFlowControlManagerEntities1 db = new DBGasFlowControlManagerEntities1())
+            using (DBGasFlowControlManagerEntities2 db = new DBGasFlowControlManagerEntities2())
             {
                 authUser = db.Users.Where(b => b.Login == login && b.Password == pass).FirstOrDefault();
 

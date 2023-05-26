@@ -55,6 +55,19 @@
                                              Margin="5 0" Height="20" Width="20"/>
                 </TextBlock>
 
+                <TextBlock Text="Пользователи" 
+                           FontSize="32"
+                           Foreground="#AFA2FF"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Margin="60 0 0 0"
+                           Name="Users"
+                           MouseDown="Users_MouseDown"
+                           Cursor="Hand">
+                    <materialDesign:PackIcon Kind="Users" 
+                                             Margin="5 0" Height="20" Width="20"/>
+                </TextBlock>
+
                 <TextBlock Text="Выйти" 
                            FontSize="32"
                            Foreground="#AFA2FF"

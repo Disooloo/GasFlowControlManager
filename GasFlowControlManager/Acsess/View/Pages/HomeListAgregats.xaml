@@ -15,7 +15,68 @@
       Title="HomeListAgregats">
 
     <Grid>
-        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <Grid Name="Hello"
+              Margin="20 10">
+            <Border Margin="5"
+                    BorderBrush="Black"
+                    BorderThickness="1"
+                    CornerRadius="10">
+               
+                <Grid>
+                    <DockPanel HorizontalAlignment="Left"
+                               VerticalAlignment="Center">
+                        <TextBlock Text="Name Spase"
+                                   FontSize="32"
+                                   Margin="20 0"
+                                   Foreground="#AFA2FF"/>
+                       
+                    </DockPanel>
+                    <DockPanel HorizontalAlignment="Center"
+                               VerticalAlignment="Center">
+                        <TextBlock Text="Всего записей: "
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="32"
+                                   Margin="20 0"
+                                   Foreground="#AFA2FF"/>
+                        <Border BorderBrush="#AFA2FF"
+                                BorderThickness="1"
+                                CornerRadius="20"
+                                Padding="5">
+                            <TextBlock Text="19"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="32"
+                                   Margin="0"
+                                   Foreground="#AFA2FF"/>
+                        </Border>
+                       
+                    </DockPanel>
+                    <DockPanel HorizontalAlignment="Right"
+                               VerticalAlignment="Center">
+                        <materialDesign:PackIcon Kind="Search"
+                                                Height="30" Width="30"
+                                                Foreground="#AFA2FF"
+                                                Margin="0 10"/>
+                        <TextBox  MaxWidth="550"
+                                  MinWidth="280"
+                                  Foreground="#AFA2FF"
+                                  FontSize="32"
+                                  materialDesign:HintAssist.Hint="Поиск..."
+                                  IsEnabled="True"
+                                  Margin="20 0"/>
+                    </DockPanel>
+                    
+                </Grid>
+            </Border>
+        </Grid>
+        
+        <Grid Grid.Row="1">
+
             <ListBox Name="listBox" 
                  HorizontalContentAlignment="Stretch"
                  ScrollViewer.HorizontalScrollBarVisibility="Visible">
@@ -39,87 +100,87 @@
                             BorderBrush="{StaticResource MaterialDesignDivider}">
                             <Grid>
                                 <StackPanel>
-                        <TextBlock Text="{Binding Path=Name}"
+                                    <TextBlock Text="{Binding Path=Name}"
                                Foreground="#7A89C2"
                                Style="{StaticResource MaterialDesignHeadline6TextBlock}" />
-                        <Image Source="/Acsess/Image/23278.jpg"
+                                    <Image Source="/Acsess/Image/23278.jpg"
                                    Width="200" Height="200"
                                    Margin="0 20 0 10"
                                    Stretch="UniformToFill" />
-                       
-                        <DockPanel Margin="0 5">
-                            <TextBlock Text="Производитель: "
+
+                                    <DockPanel Margin="0 5">
+                                        <TextBlock Text="Производитель: "
                                    Foreground="#7A89C2"
                                    Style="{StaticResource MaterialDesignBody2TextBlock}" />
-                            <TextBlock Text="{Binding Path=Manufacturer}"
+                                        <TextBlock Text="{Binding Path=Manufacturer}"
                                    Foreground="#7A89C2"
                                    HorizontalAlignment="Right"
                                    Style="{StaticResource MaterialDesignBody2TextBlock}" />
-                        </DockPanel>
-                        <DockPanel Margin="0 5">
-                            <TextBlock Text="Макс Максимальное давление: "
+                                    </DockPanel>
+                                    <DockPanel Margin="0 5">
+                                        <TextBlock Text="Макс Максимальное давление: "
                                    Foreground="#7A89C2"
                                    TextWrapping="Wrap" 
                                    Style="{StaticResource MaterialDesignBody2TextBlock}" Width="175" />
-                            <TextBlock Text="{Binding Path=MaxPressure}"
+                                        <TextBlock Text="{Binding Path=MaxPressure}"
                                        Name="maxPressure"
                                    VerticalAlignment="Center"
                                    Foreground="#7A89C2"
                                    HorizontalAlignment="Right"
                                    Style="{StaticResource MaterialDesignBody2TextBlock}" >
                                     <materialDesign:PackIcon Kind="Cpu64Bit"/>
-                            </TextBlock>
-                        </DockPanel>
-                        <DockPanel Margin="0 5">
-                            <TextBlock Text="Макс. скорость потока: "
+                                        </TextBlock>
+                                    </DockPanel>
+                                    <DockPanel Margin="0 5">
+                                        <TextBlock Text="Макс. скорость потока: "
                                    Foreground="#7A89C2"
                                    TextWrapping="Wrap" 
                                    Style="{StaticResource MaterialDesignBody2TextBlock}" Width="175" />
-                            <TextBlock Text="{Binding Path=MaxFlowRate}"
+                                        <TextBlock Text="{Binding Path=MaxFlowRate}"
                                        Name="maxFlowRate"
                                    VerticalAlignment="Center"
                                    Foreground="#7A89C2"
                                    HorizontalAlignment="Right"
                                    Style="{StaticResource MaterialDesignBody2TextBlock}">
                                     <materialDesign:PackIcon Kind="ProgressAlert"/>
-                            </TextBlock>
-                           </DockPanel>
-                            <DockPanel>
-                           
-                            </DockPanel>        
-                                    
-                                    
-                                    
-                        <Border Width="100"
-                            Height="2"
-                            HorizontalAlignment="Center"
-                            Background="#7A89C2" 
-                                Margin="0 20"/>
-                    </StackPanel>
+                                        </TextBlock>
+                                    </DockPanel>
+                                    <DockPanel>
 
-                            <Grid VerticalAlignment="Bottom">
-                        <DockPanel>
+                                    </DockPanel>
+
+
+
+                                    <Border Width="100"
+                                            Height="2"
+                                            HorizontalAlignment="Center"
+                                            Background="#7A89C2" 
+                                            Margin="0 20"/>
+                                </StackPanel>
+
+                                <Grid VerticalAlignment="Bottom">
+                                    <DockPanel>
                                         <TextBlock Text="{Binding Path=CurrentPressure}"
                                                    Name="currentFlowRate"
-                                       FontSize="24"
-                                       Foreground="#7AC27E">
+                                                   FontSize="24"
+                                                   Foreground="#7AC27E">        
                                 <materialDesign:PackIcon Kind="Cpu64Bit"
                                                          Height="30" Width="30"
                                                          Margin="0 -3"/>
 
-                            </TextBlock>
+                                        </TextBlock>
 
                                         <TextBlock Text="{Binding Path=CurrentEfficiency}"
-                                               Name="CurrentEfficiencyValue"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Center"
-                                               Foreground="#7A89C2"
-                                               Margin="40 0 0 0 "
-                                               FontSize="24"
-                                               TextDecorations="Underline"
-                                               Style="{StaticResource MaterialDesignBody2TextBlock}" >
+                                                   Name="CurrentEfficiencyValue"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
+                                                   Foreground="#7A89C2"
+                                                   Margin="40 0 0 0 "
+                                                   FontSize="24"
+                                                   TextDecorations="Underline"
+                                                   Style="{StaticResource MaterialDesignBody2TextBlock}" >
 
-                            </TextBlock>
+                                        </TextBlock>
 
                                         <TextBlock Text="{Binding Path=CurrentFlowRate}"
                                                    HorizontalAlignment="Right"
@@ -131,19 +192,36 @@
                                                          Height="30" Width="30"
                                                          Margin="0 -3"/>
 
-                            </TextBlock>
+                                        </TextBlock>
 
-                        </DockPanel>
-                    </Grid>
-                </Grid>
+                                    </DockPanel>
+                                </Grid>
+                            </Grid>
 
-            </materialDesign:Card>
+                        </materialDesign:Card>
 
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            <Border BorderBrush="Black"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Height="70" Width="70"
+                    Margin="40"
+                    Background="#7A89C2"
+                    BorderThickness="1"
+                    CornerRadius="50"
+                    Cursor="Hand">
+                <materialDesign:PackIcon Kind="Add"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"
+                                         Foreground="#fff"
+                                         Height="50" Width="50"/>
+            </Border>
+           
+
         </Grid>
-     <!--
+        <!--
         <Grid>
             <materialDesign:Card Padding="20" 
                                  Margin="50"
@@ -244,7 +322,6 @@
         </Grid>
 -->
 
-        <TextBlock Text="0" FontSize="200" HorizontalAlignment="Right"
-                   Name="Text"/>
+
     </Grid>
 </Page>

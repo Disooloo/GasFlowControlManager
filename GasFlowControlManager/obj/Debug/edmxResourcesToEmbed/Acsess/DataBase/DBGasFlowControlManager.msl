@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище DBGasFlowControlManagerModelContainer" CdmEntityContainer="DBGasFlowControlManagerEntities1">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DBGasFlowControlManagerModelContainer" CdmEntityContainer="DBGasFlowControlManagerEntities2">
     <EntitySetMapping Name="GasCompressors">
       <EntityTypeMapping TypeName="DBGasFlowControlManagerModel.GasCompressors">
         <MappingFragment StoreEntitySet="GasCompressors">
@@ -72,6 +72,9 @@
           <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
           <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
           <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Derection" ColumnName="Derection" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

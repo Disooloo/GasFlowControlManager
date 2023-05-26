@@ -67,6 +67,9 @@
     <Property Name="IsAdmin" Type="bit" />
     <Property Name="RegistrationDate" Type="date" />
     <Property Name="LastLoginDate" Type="datetime" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Derection" Type="text" />
   </EntityType>
   <Association Name="FK__Parameter__GasCo__07C12930">
     <End Role="GasCompressors" Type="Self.GasCompressors" Multiplicity="0..1" />

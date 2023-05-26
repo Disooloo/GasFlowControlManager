@@ -13,17 +13,18 @@ namespace GasFlowControlManager.Acsess.DataBase
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBGasFlowControlManagerEntities1 : DbContext
+    public partial class DBGasFlowControlManagerEntities2 : DbContext
     {
-        public static DBGasFlowControlManagerEntities1 _context;
-        public static DBGasFlowControlManagerEntities1 GetContext()
+        public static DBGasFlowControlManagerEntities2 _context;
+        public static DBGasFlowControlManagerEntities2 GetContext()
         {
             if (_context == null)
-                _context = new DBGasFlowControlManagerEntities1();
+                _context = new DBGasFlowControlManagerEntities2();
             return _context;
         }
-        public DBGasFlowControlManagerEntities1()
-            : base("name=DBGasFlowControlManagerEntities1")
+
+        public DBGasFlowControlManagerEntities2()
+            : base("name=DBGasFlowControlManagerEntities2")
         {
         }
     

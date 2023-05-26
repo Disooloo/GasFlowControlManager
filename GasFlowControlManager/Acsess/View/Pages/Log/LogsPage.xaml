@@ -47,6 +47,9 @@
                                                   Height="20" Width="20"
                                                   />
                     </TextBlock>
+                    <DockPanel>
+                        
+                    </DockPanel>
                     <TextBlock Text="Логи пользователей" 
                                FontSize="32"
                                Cursor="Hand"
@@ -55,6 +58,18 @@
                                TextDecorations="Underline"
                                Foreground="#673AB7">
                         <materialDesign:PackIcon Kind="NextTitle" 
+                                                  Margin="5 0" 
+                                                  Height="20" Width="20"
+                                                  />
+                    </TextBlock>
+                    <TextBlock Text="Назад" 
+                               FontSize="32"
+                               Cursor="Hand"
+                               Margin="200 0"
+                               Name="Back"
+                               MouseDown="Back_MouseDown"
+                               Foreground="#673AB7">
+                        <materialDesign:PackIcon Kind="Backburger" 
                                                   Margin="5 0" 
                                                   Height="20" Width="20"
                                                   />
