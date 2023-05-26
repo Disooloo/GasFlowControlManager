@@ -49,3 +49,5 @@ D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlMana
 D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Log\LogUserPage.baml
 D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Admins\UsersListPage.g.cs
 D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Admins\UsersListPage.baml
+D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Admins\UserShowPage.g.cs
+D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Admins\UserShowPage.baml

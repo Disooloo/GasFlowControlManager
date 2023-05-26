@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\App.xaml
-6-1792880340
+71497736292
 21676169523
-23-812065999
+24-86451255
 271139099403
-Acsess\View\Pages\Admins\UsersListPage.xaml;Acsess\View\Pages\HomeListAgregats.xaml;Acsess\View\Pages\Log\LogsPage.xaml;Acsess\View\Pages\Log\LogUserPage.xaml;Acsess\View\Windows\AuthWindows.xaml;MainWindow.xaml;
+Acsess\View\Pages\Admins\UserShowPage.xaml;Acsess\View\Pages\Admins\UsersListPage.xaml;Acsess\View\Pages\HomeListAgregats.xaml;Acsess\View\Pages\Log\LogsPage.xaml;Acsess\View\Pages\Log\LogUserPage.xaml;Acsess\View\Windows\AuthWindows.xaml;MainWindow.xaml;
 
-False
+True
 

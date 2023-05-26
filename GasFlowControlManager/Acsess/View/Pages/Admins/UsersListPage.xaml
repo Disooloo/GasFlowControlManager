@@ -12,7 +12,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="5*" />
             <ColumnDefinition Width="7*" />
         </Grid.ColumnDefinitions>
 
@@ -42,9 +42,17 @@
                             <DataGridTextColumn Header="Админ" Binding="{Binding Path=IsAdmin}" />
                             <DataGridTextColumn Header="Дата регистрации" Binding="{Binding Path=RegistrationDate}" />
                             <DataGridTextColumn Header="Последний вход" Binding="{Binding Path=LastLoginDate}" />
+
+                            <DataGridTemplateColumn Header="Действия">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Подробнее" Click="UserShow_Click" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
-                        
                     </DataGrid>
+
                 </Grid>
             </materialDesign:Card>
 

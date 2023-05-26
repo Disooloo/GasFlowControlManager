@@ -99,6 +99,11 @@ namespace GasFlowControlManager.Acsess.View.Pages.Admins
             return password.ToString();
         }
 
+        private void UserShow_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new UserShowPage((sender as System.Windows.Controls.Button).DataContext as Users));
+        }
+
        
     }
 }
