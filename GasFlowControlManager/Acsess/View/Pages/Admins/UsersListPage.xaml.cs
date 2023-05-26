@@ -33,7 +33,12 @@ namespace GasFlowControlManager.Acsess.View.Pages.Admins
 
             DataContext = _currentTeams;
 
+        }
 
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+                DBGasFlowControlManagerEntities2.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
             DBlist.ItemsSource = DBGasFlowControlManagerEntities2.GetContext().Users.OrderByDescending(item => item.Id).ToList();
 
         }

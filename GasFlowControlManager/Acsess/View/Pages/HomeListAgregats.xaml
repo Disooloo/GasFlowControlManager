@@ -12,6 +12,7 @@
       TextOptions.TextRenderingMode="Auto"
       FontFamily="{DynamicResource MaterialDesignFont}"
       d:DesignHeight="900" d:DesignWidth="1000"
+      IsVisibleChanged="Page_IsVisibleChanged"
       Title="HomeListAgregats">
 
     <Grid>
@@ -48,11 +49,12 @@
                                 CornerRadius="20"
                                 Padding="5">
                             <TextBlock Text="19"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   FontSize="32"
-                                   Margin="0"
-                                   Foreground="#AFA2FF"/>
+                                       Name="coutAgr"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="32"
+                                       Margin="0"
+                                       Foreground="#AFA2FF"/>
                         </Border>
                        
                     </DockPanel>
@@ -68,7 +70,11 @@
                                   FontSize="32"
                                   materialDesign:HintAssist.Hint="Поиск..."
                                   IsEnabled="True"
+                                  Name="TBox_search"
+                                  TextChanged="TextBox_TextChanged"
                                   Margin="20 0"/>
+
+                      
                     </DockPanel>
                     
                 </Grid>

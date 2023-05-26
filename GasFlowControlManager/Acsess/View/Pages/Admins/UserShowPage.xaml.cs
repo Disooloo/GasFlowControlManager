@@ -34,11 +34,12 @@ namespace GasFlowControlManager.Acsess.View.Pages.Admins
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-
+            Manager.MainFrame.GoBack();
         }
 
         private void edit_Click(object sender, RoutedEventArgs e)
         {
+            Manager.MainFrame.Navigate(new UsersListPage((sender as Button).DataContext as Users));
         }
 
         private void remove_Click(object sender, RoutedEventArgs e)

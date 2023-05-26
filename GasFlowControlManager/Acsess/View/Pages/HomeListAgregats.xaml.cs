@@ -1,4 +1,5 @@
-﻿using GasFlowControlManager.Acsess.DataBase;
+﻿using ControlzEx.Standard;
+using GasFlowControlManager.Acsess.DataBase;
 using GasFlowControlManager.Acsess.Managers;
 using System;
 using System.Collections;
@@ -30,13 +31,19 @@ namespace GasFlowControlManager.Acsess.View.Pages
         public HomeListAgregats()
         {
             InitializeComponent();
-            listBox.ItemsSource = DBGasFlowControlManagerEntities2.GetContext().GasCompressors.ToList();
-            //listBox.ItemsSource = DBGasFlowControlManagerEntities1.GetContext().GasCompressors.OrderByDescending(item => item.Id).ToList();
             TextBlock currentPressureTextBlock = FindName("currentPressure") as TextBlock;
             if (currentPressureTextBlock != null)
             {
                 CurrentProsentAndColor(currentPressureTextBlock);
             }
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+                DBGasFlowControlManagerEntities2.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+            listBox.ItemsSource = DBGasFlowControlManagerEntities2.GetContext().GasCompressors.OrderByDescending(item => item.Id).ToList();
+            coutAgr.Text = DBGasFlowControlManagerEntities2.GetContext().GasCompressors.Count().ToString();
         }
 
         private static void CurrentProsentAndColor(TextBlock textBlock)
@@ -72,6 +79,20 @@ namespace GasFlowControlManager.Acsess.View.Pages
             }
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Update();
+        }
 
+        private void Update()
+        {
+            var currentCompany = DBGasFlowControlManagerEntities2.GetContext().GasCompressors.ToList();
+
+            currentCompany = currentCompany.Where(p =>
+                p.Name.ToLower().Contains(TBox_search.Text.ToLower())
+                || p.Id.ToString().Contains(TBox_search.Text.ToLower())).ToList();
+
+            listBox.ItemsSource = currentCompany.ToList();
+        }
     }
 }
