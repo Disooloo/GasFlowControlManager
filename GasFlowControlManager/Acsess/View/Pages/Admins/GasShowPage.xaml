@@ -68,65 +68,86 @@
                             <TextBlock HorizontalAlignment="Left"
                                            Text="Производитель:" FontSize="24"/>
                             <TextBlock HorizontalAlignment="Right"
-                                           Text="{Binding Path=Position}" FontSize="24" FontWeight="Bold"
+                                           Text="{Binding Path=Manufacturer}" FontSize="24" FontWeight="Bold"
                                            Foreground="#673AB7"/>
                         </DockPanel>
 
                         <DockPanel Margin="0 0 0 10">
                             <TextBlock HorizontalAlignment="Left"
-                                           Text="Телефон:" FontSize="24"/>
+                                       Text="Максимальная мощьность:" FontSize="24"/>
                             <TextBlock HorizontalAlignment="Right"
-                                           Text="{Binding Path=Phone}" FontSize="24" FontWeight="Bold"
+                                       Text="{Binding Path=MaxPressure}" FontSize="24" FontWeight="Bold"
+                                       Name="MaxPressureTextBlock"
+                                       Foreground="#673AB7"/>
+                        </DockPanel>
+
+                        <DockPanel Margin="0 0 0 10">
+                            <TextBlock HorizontalAlignment="Left"
+                                       Text="Текущая мощьность:" FontSize="24"
+                                       TextDecorations="Underline"/>
+                            <TextBlock HorizontalAlignment="Right"
+                                       Text="{Binding Path=CurrentPressure}" 
+                                       FontSize="24" FontWeight="Bold"
+                                       Name="currentPressureTextBlock"
+                                       TextDecorations="Underline"
+                                       Foreground="#673AB7"/>
+                        </DockPanel>
+
+                        <DockPanel Margin="0 0 0 10">
+                            <TextBlock HorizontalAlignment="Left"
+                                       Text="Максимальное давление:" FontSize="24"/>
+                            <TextBlock HorizontalAlignment="Right"
+                                       Text="{Binding Path=MaxFlowRate}" FontSize="24" FontWeight="Bold"
+                                       Name="MaxFlowRateTextBlock"
+                                       Foreground="#673AB7"/>
+                        </DockPanel>
+
+                        <DockPanel Margin="0 0 0 10">
+                            <TextBlock HorizontalAlignment="Left"
+                                       Text="Текущее давление:" FontSize="24"
+                                       TextDecorations="Underline"/>
+                            <TextBlock HorizontalAlignment="Right"
+                                       Text="{Binding Path=CurrentFlowRate}" 
+                                       FontSize="24" FontWeight="Bold"
+                                       Name="CurrentFlowRateTextBlock"
+                                       TextDecorations="Underline"
+                                       Foreground="#673AB7"/>
+                        </DockPanel>
+
+
+                        <DockPanel Margin="0 0 0 5">
+                            <TextBlock HorizontalAlignment="Left"
+                                           Text="Работоспособность:" FontSize="24"/>
+                            <CheckBox Name="Power"
+                                      HorizontalAlignment="Right"
+                                      Style="{StaticResource MaterialDesignFilterChipCheckBox}"
+                                      Width="199" Height="40"
+                                      IsEnabled="False" 
+                                      Background="Green"
+                                      IsChecked="{Binding Path=Power}" />
+                        </DockPanel>
+
+                        <DockPanel Margin="0 0 0 10">
+                            <TextBlock HorizontalAlignment="Left"
+                                           Text="Дата установки:" FontSize="24"/>
+                            <TextBlock HorizontalAlignment="Right"
+                                           Text="{Binding Path=InstallationDate}" FontSize="24" FontWeight="Bold"
                                            Foreground="#673AB7"/>
                         </DockPanel>
 
                         <DockPanel Margin="0 0 0 10">
                             <TextBlock HorizontalAlignment="Left"
-                                           Text="Email:" FontSize="24"/>
+                                           Text="Текущий КПД:" FontSize="24"/>
                             <TextBlock HorizontalAlignment="Right"
-                                           Text="{Binding Path=Email}" FontSize="24" FontWeight="Bold"
+                                           Text="{Binding Path=CurrentEfficiency}" FontSize="24" FontWeight="Bold"
                                            Foreground="#673AB7"/>
                         </DockPanel>
-
-                        <DockPanel Margin="0 0 0 10">
-                            <TextBlock HorizontalAlignment="Left"
-                                           Text="Дата регистрации:" FontSize="24"/>
-                            <TextBlock HorizontalAlignment="Right"
-                                           Text="{Binding Path=RegistrationDate}" FontSize="24" FontWeight="Bold"
-                                           Foreground="#673AB7"/>
-                        </DockPanel>
-
-                        <DockPanel Margin="0 0 0 10">
-                            <TextBlock HorizontalAlignment="Left"
-                                           Text="Последний вход:" FontSize="24"/>
-                            <TextBlock HorizontalAlignment="Right"
-                                           Text="{Binding Path=LastLoginDate}" FontSize="24" FontWeight="Bold"
-                                           Foreground="#673AB7"/>
-                        </DockPanel>
-
-                        <DockPanel Margin="0 0 0 10">
-                            <TextBlock HorizontalAlignment="Left"
-                                           Text="Админ:" FontSize="24"/>
-                            <TextBlock HorizontalAlignment="Right"
-                                           Text="{Binding Path=IsAdmin}" FontSize="24" FontWeight="Bold"
-                                           Foreground="#673AB7"/>
-                        </DockPanel>
-
-                        <DockPanel Margin="0 0 0 10">
-                            <TextBlock HorizontalAlignment="Left"
-                                       Text="Описание:" FontSize="24"/>
-                            <TextBlock HorizontalAlignment="Right"
-                                       Text="{Binding Path=Derection}" FontSize="24" FontWeight="Bold"
-                                       Foreground="#673AB7"
-                                       TextTrimming="CharacterEllipsis"
-                                       TextWrapping="NoWrap"
-                                       MaxWidth="200"/>
-                        </DockPanel>
-
+                        
                     </StackPanel>
                 </materialDesign:Card>
             </Border>
         </Grid>
+
         <StackPanel Grid.Row="1"
                     HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <DockPanel>

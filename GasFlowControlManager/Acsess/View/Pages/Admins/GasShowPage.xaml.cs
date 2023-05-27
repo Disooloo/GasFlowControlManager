@@ -1,6 +1,7 @@
 ﻿using GasFlowControlManager.Acsess.DataBase;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,8 @@ namespace GasFlowControlManager.Acsess.View.Pages.Admins
                 _currentGas = selectGas;
 
             DataContext = _currentGas;
+
+
         }
         private void back_Click(object sender, RoutedEventArgs e)
         {

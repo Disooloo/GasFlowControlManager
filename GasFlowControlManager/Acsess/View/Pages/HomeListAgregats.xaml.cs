@@ -54,6 +54,20 @@ namespace GasFlowControlManager.Acsess.View.Pages
             coutAgr.Text = DBGasFlowControlManagerEntities2.GetContext().GasCompressors.Count().ToString();
         }
 
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is bool power)
+            {
+                return power ? 1.0 : 0.5;
+            }
+
+            return 1.0;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
 
         private static void CurrentProsentAndColor(TextBlock textBlock)
         {
@@ -164,7 +178,12 @@ namespace GasFlowControlManager.Acsess.View.Pages
 
         private void listBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Manager.MainFrame.Navigate(new GasShowPage((sender as System.Windows.Controls.ListBox).DataContext as GasCompressors));
+            //Manager.MainFrame.Navigate(new GasShowPage((sender as System.Windows.Controls.ListBox).DataContext as GasCompressors));
+            var selectedGasCompressor = (sender as System.Windows.Controls.ListBox)?.SelectedItem as GasCompressors;
+            if (selectedGasCompressor != null)
+            {
+                Manager.MainFrame.Navigate(new GasShowPage(selectedGasCompressor));
+            }
         }
     }
 }
