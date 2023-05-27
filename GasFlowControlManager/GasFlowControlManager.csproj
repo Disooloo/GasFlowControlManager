@@ -87,6 +87,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Acsess\View\Pages\Admins\GasShowPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Acsess\View\Pages\Admins\UserShowPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,6 +153,9 @@
       <DependentUpon>DBGasFlowControlManager.tt</DependentUpon>
     </Compile>
     <Compile Include="Acsess\Managers\EfficiencyData.cs" />
+    <Compile Include="Acsess\View\Pages\Admins\GasShowPage.xaml.cs">
+      <DependentUpon>GasShowPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Acsess\View\Pages\Admins\UserShowPage.xaml.cs">
       <DependentUpon>UserShowPage.xaml</DependentUpon>
     </Compile>

@@ -86,8 +86,9 @@
         <Grid Grid.Row="1">
 
             <ListBox Name="listBox" 
-                 HorizontalContentAlignment="Stretch"
-                 ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                     MouseDoubleClick="listBox_MouseDoubleClick"
+                     HorizontalContentAlignment="Stretch"
+                     ScrollViewer.HorizontalScrollBarVisibility="Visible">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal"/>
@@ -230,6 +231,8 @@
                     Background="#7A89C2"
                     BorderThickness="1"
                     CornerRadius="50"
+                    Name="OpenModelWindowAddAgr"
+                    MouseDown="OpenModelWindowAddAgr_MouseDown"
                     Cursor="Hand">
                 <materialDesign:PackIcon Kind="Add"
                                          HorizontalAlignment="Center"
@@ -240,107 +243,109 @@
            
 
         </Grid>
-        <!--
-        <Grid>
-            <materialDesign:Card Padding="20" 
-                                 Margin="50"
-                                 Width="300"
-                                 Height="500"
-                                 VerticalAlignment="Top"
-                                 Background="White"
-                                 BorderThickness="2"
-                                 HorizontalAlignment="Left"
-                                 BorderBrush="{StaticResource MaterialDesignDivider}"
-                                    >
 
+        <Grid Grid.RowSpan="2"
+              Name="ModelWindows"
+              Visibility="Hidden">
+            <Border MinWidth="400" MaxWidth="900" Margin="70" CornerRadius="30" Background="#FFF"
+            BorderBrush="#FFF" BorderThickness="1">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="270" ShadowDepth="6" Opacity="0.8" BlurRadius="10"/>
+                </Border.Effect>
                 <Grid>
-                    <StackPanel>
-                        <TextBlock Text="Агрегат 2"
-                               Foreground="#7A89C2"
-                               Style="{StaticResource MaterialDesignHeadline6TextBlock}" />
-                        <Image Source="/Acsess/Image/23278.jpg"
-                                   Width="200" Height="200"
-                                   Margin="0 20 0 10"
-                                   Stretch="UniformToFill" />
-                        <DockPanel Margin="0 5">
-                            <TextBlock Text="Тип агрегата: "
-                                   Foreground="#7A89C2"
-                                   Style="{StaticResource MaterialDesignBody2TextBlock}" />
-                            <TextBlock Text="Насос "
-                                   Foreground="#7A89C2"
-                                   HorizontalAlignment="Right"
-                                   Style="{StaticResource MaterialDesignBody2TextBlock}" />
-                        </DockPanel>
-                        <DockPanel Margin="0 5">
-                            <TextBlock Text="Производитель: "
-                                   Foreground="#7A89C2"
-                                   Style="{StaticResource MaterialDesignBody2TextBlock}" />
-                            <TextBlock Text="Company A "
-                                   Foreground="#7A89C2"
-                                   HorizontalAlignment="Right"
-                                   Style="{StaticResource MaterialDesignBody2TextBlock}" />
-                        </DockPanel>
-                        <DockPanel Margin="0 5">
-                            <TextBlock Text="Макс производительность (м3/ч): "
-                                   Foreground="#7A89C2"
-                                   TextWrapping="Wrap" 
-                                   Style="{StaticResource MaterialDesignBody2TextBlock}" Width="175" />
-                            <TextBlock Text="1000"
-                                   VerticalAlignment="Center"
-                                   Foreground="#7A89C2"
-                                   HorizontalAlignment="Right"
-                                   Style="{StaticResource MaterialDesignBody2TextBlock}" >
-                                    <materialDesign:PackIcon Kind="Cpu64Bit"/>
-                            </TextBlock>
-                        </DockPanel>
-                        <DockPanel Margin="0 5">
-                            <TextBlock Text="Макс. давление (бар): "
-                                   Foreground="#7A89C2"
-                                   TextWrapping="Wrap" 
-                                   Style="{StaticResource MaterialDesignBody2TextBlock}" Width="175" />
-                            <TextBlock Text="10"
-                                   VerticalAlignment="Center"
-                                   Foreground="#7A89C2"
-                                   HorizontalAlignment="Right"
-                                   Style="{StaticResource MaterialDesignBody2TextBlock}">
-                                    <materialDesign:PackIcon Kind="ProgressAlert"/>
-                            </TextBlock>
-                        </DockPanel>
-                        <Border Width="100"
-                            Height="2"
-                            HorizontalAlignment="Center"
-                            Background="#7A89C2" 
-                                Margin="0 20"/>
-                    </StackPanel>
+                    <DockPanel>
+                        <TextBlock Text="Добавление нового Агрегата"
+                                   Margin="50 20"
+                                   FontSize="23"
+                                   Foreground="#7A89C2"/>
+                        <materialDesign:PackIcon Kind="Close"
+                                                 HorizontalAlignment="Right"
+                                                 VerticalAlignment="Top"
+                                                 Margin="50 20"
+                                                 Cursor="Hand"
+                                                 Name="ClosingModel"
+                                                 MouseDown="ClosingModel_MouseDown"
+                                                 Height="40" Width="40"/>
 
-                    <Grid VerticalAlignment="Bottom">
+                    </DockPanel>
+                    <StackPanel 
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="Left"
+                        Margin="30 100">
                         <DockPanel>
-                            <TextBlock Text="1200"
-                                       FontSize="32"
-                                       Foreground="#C27A7A">
-                                <materialDesign:PackIcon Kind="Cpu64Bit"
-                                                         Height="30" Width="30"
-                                                         Margin="0 -3"/>
-
-                            </TextBlock>
-                            <TextBlock Text="10"
-                                       HorizontalAlignment="Right"
-                                       FontSize="32"
-                                       Foreground="#C2C27A">
-                                <materialDesign:PackIcon Kind="ProgressAlert"
-                                                         Height="30" Width="30"
-                                                         Margin="0 -3"/>
-
-                            </TextBlock>
-
+                            <materialDesign:PackIcon Kind="Pandora"
+                                                     HorizontalAlignment="Right"
+                                                     VerticalAlignment="Top"
+                                                     Margin="50 20"
+                                                     Cursor="Hand"
+                                                     Foreground="#AFA2FF"
+                                                     Height="40" Width="40"/>
+                            <TextBox  Width="550"
+                                      Height="50"
+                                      Foreground="#AFA2FF"
+                                      FontSize="24"
+                                      materialDesign:HintAssist.Hint="Наименование"
+                                      Name="NameBox"/>
                         </DockPanel>
-                    </Grid>
+                        <DockPanel>
+                            <materialDesign:PackIcon Kind="Company"
+                                                     HorizontalAlignment="Right"
+                                                     VerticalAlignment="Top"
+                                                     Margin="50 20"
+                                                     Cursor="Hand"
+                                                     Foreground="#AFA2FF"
+                                                     Height="40" Width="40"/>
+                            <TextBox  Width="550"
+                                      Height="50"
+                                      Foreground="#AFA2FF"
+                                      FontSize="24"
+                                      materialDesign:HintAssist.Hint="Производитель"
+                                      Name="ManufacturerBox"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <materialDesign:PackIcon Kind="CarBrakeLowPressure"
+                                                     HorizontalAlignment="Right"
+                                                     VerticalAlignment="Top"
+                                                     Margin="50 20"
+                                                     Cursor="Hand"
+                                                     Foreground="#AFA2FF"
+                                                     Height="40" Width="40"/>
+                            <TextBox  Width="550"
+                                      Height="50"
+                                      Foreground="#AFA2FF"
+                                      FontSize="24"
+                                      materialDesign:HintAssist.Hint="Максимальное давление"
+                                      Name="Max_PressureBox"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <materialDesign:PackIcon Kind="Speedometer"
+                                                     HorizontalAlignment="Right"
+                                                     VerticalAlignment="Top"
+                                                     Margin="50 20"
+                                                     Cursor="Hand"
+                                                     Foreground="#AFA2FF"
+                                                     Height="40" Width="40"/>
+                            <TextBox  Width="550"
+                                      Height="50"
+                                      Foreground="#AFA2FF"
+                                      FontSize="24"
+                                      materialDesign:HintAssist.Hint="Максимальное скорость потока"
+                                      Name="Max_Flow_Rate"/>
+                        </DockPanel>
+                        <Button HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content="Сохранить"
+                                FontSize="32"
+                                Height="50"
+                                Margin="200 20"
+                                Name="SaveAgr"
+                                Click="SaveAgr_Click"
+                                Style="{StaticResource MaterialDesignFlatDarkButton}"
+                                />
+                    </StackPanel>
                 </Grid>
-
-            </materialDesign:Card>
+            </Border>
         </Grid>
--->
-
 
     </Grid>
 </Page>

@@ -1,6 +1,7 @@
 ﻿using ControlzEx.Standard;
 using GasFlowControlManager.Acsess.DataBase;
 using GasFlowControlManager.Acsess.Managers;
+using GasFlowControlManager.Acsess.View.Pages.Admins;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections;
@@ -102,7 +103,7 @@ namespace GasFlowControlManager.Acsess.View.Pages
 
             listBox.ItemsSource = currentCompany.ToList();
         }
-
+        
         private void convertPower()
         {
             using (var context = new DBGasFlowControlManagerEntities2())
@@ -118,6 +119,52 @@ namespace GasFlowControlManager.Acsess.View.Pages
 
             }
 
+        }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void NameBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ManufacturerBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Max_PressureBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Max_Flow_Rate_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void SaveAgr_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ClosingModel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ModelWindows.Visibility = Visibility.Hidden;
+        }
+
+        private void OpenModelWindowAddAgr_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ModelWindows.Visibility = Visibility.Visible;
+
+        }
+
+        private void listBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new GasShowPage((sender as System.Windows.Controls.ListBox).DataContext as GasCompressors));
         }
     }
 }

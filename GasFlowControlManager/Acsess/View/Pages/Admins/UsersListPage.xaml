@@ -127,7 +127,7 @@
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
-                        <TextBox Name="Password"
+                        <TextBox Name="password"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      materialDesign:HintAssist.Hint="Пароль"
                      Width="180" Height="40"
@@ -148,11 +148,36 @@
                                      VerticalAlignment="Center" />
 
                         <TextBox Name="Phone"
-                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                     materialDesign:HintAssist.Hint="Телефон"
-                     Width="199" Height="40"
-                     Text="{Binding Path=Phone}" />
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:HintAssist.Hint="Телефон"
+                                 Width="199" Height="40"
+                                 Text="{Binding Path=Phone}" /> 
                     </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Grid.Row="1" Grid.Column="0" Kind="Email"
+                                                 Foreground="{Binding ElementName=Phone, Path=BorderBrush}"
+                                                 VerticalAlignment="Center" />      
+
+                        <TextBox Name="email"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:HintAssist.Hint="Email"
+                                 Width="199" Height="40"
+                                 Text="{Binding Path=Email}" /> 
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Grid.Row="1" Grid.Column="0" Kind="ImageDescription"
+                                                 Foreground="{Binding ElementName=Phone, Path=BorderBrush}"
+                                                 VerticalAlignment="Center" />
+
+                        <TextBox Name="description"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:HintAssist.Hint="Описание"
+                                 Width="199" Height="40"
+                                 Text="{Binding Path=Derection}" />
+                    </StackPanel>
+
                 </StackPanel>
             </Grid>
 
