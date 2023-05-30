@@ -80,7 +80,8 @@ namespace GasFlowControlManager.Acsess.View.Pages.Admins
 
         private void Emulator_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new GasEmulatorPage());
+            Manager.MainFrame.Navigate(new GasEmulatorPage((sender as Button).DataContext as GasCompressors));
+
         }
 
         private void Emulator_MouseDown(object sender, MouseButtonEventArgs e)

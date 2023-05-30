@@ -24,11 +24,15 @@
                                Margin="50 20"
                                FontSize="23"
                                Foreground="#7A89C2"/>
-                    <TextBlock Text="AS"
-                               Margin="0 20"
-                               FontSize="23"
-                               FontWeight="Bold"
-                               Foreground="#7A89C2"/>
+                    <TextBlock Margin="0 20">
+                        <Run Text="{Binding Path=Name}"
+                             FontSize="23"
+                             FontWeight="Bold"
+                             Foreground="#7A89C2"/>
+                                <Run Text="(" Foreground="#7A89C2"/>
+                                <Run Text="{Binding Path=Id}" Foreground="#7A89C2"/>
+                                <Run Text=")" Foreground="#7A89C2"/>
+                    </TextBlock>
                     <materialDesign:PackIcon Kind="Close"
                                              HorizontalAlignment="Right"
                                              VerticalAlignment="Top"
@@ -45,12 +49,12 @@
                     Margin="30 100">
                     <DockPanel>
                         <materialDesign:PackIcon Kind="Company"
-                                                     HorizontalAlignment="Right"
-                                                     VerticalAlignment="Top"
-                                                     Margin="50 20"
-                                                     Cursor="Hand"
-                                                     Foreground="#AFA2FF"
-                                                     Height="40" Width="40"/>
+                                                 HorizontalAlignment="Right"
+                                                 VerticalAlignment="Top"
+                                                 Margin="50 20"
+                                                 Cursor="Hand"
+                                                 Foreground="#AFA2FF"
+                                                 Height="40" Width="40"/>
                         <TextBox  Width="550"
                                   IsReadOnly="True"
                                   Height="50"
@@ -89,9 +93,9 @@
                                                  Height="40" Width="40"/>
                         <TextBox  Width="550" 
                                   Height="50"
-                                  Foreground="#AFA2FF"
+                                  Foreground="#7AC27E"
                                   FontSize="24"
-                                  Text="{Binding Path=MaxPressure}"
+                                  Text="{Binding Path=CurrentFlowRate}"
                                   materialDesign:HintAssist.Hint="Текущее давление "
                                   Name="MaxPressure"/>
                     </DockPanel>
@@ -123,9 +127,9 @@
                                                  Height="40" Width="40"/>
                         <TextBox  Width="550"
                                   Height="50"
-                                  Foreground="#AFA2FF"
+                                  Foreground="#7AC27E"
                                   FontSize="24"
-                                  Text="{Binding Path=MaxPressure}"
+                                  Text="{Binding Path=CurrentPressure}"
                                   materialDesign:HintAssist.Hint="Текущая скорость потока"
                                   Name="MaxPыфrыessure"/>
                     </DockPanel>
@@ -138,12 +142,12 @@
                                                  Cursor="Hand"
                                                  Foreground="#AFA2FF"
                                                  Height="40" Width="40"/>
-                        <CheckBox Name="IsAdmin"
+                        <CheckBox Name="Power"
                                   Style="{StaticResource MaterialDesignFilterChipCheckBox}"
-                                  materialDesign:HintAssist.Hint="Админ"
+                                  materialDesign:HintAssist.Hint="Power"
                                   Width="220" Height="50"
                                   Background="Green"
-                                  IsChecked="{Binding Path=IsAdmin}" />
+                                  IsChecked="{Binding Path=Power}" />
                     </DockPanel>
 
                    
