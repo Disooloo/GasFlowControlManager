@@ -199,7 +199,7 @@
                             <materialDesign:PackIcon VerticalAlignment="Center"
                                              HorizontalAlignment="Center"
                                              Kind="Remove"/>
-                            <TextBlock Text="Эмулятор" VerticalAlignment="Center"
+                            <TextBlock Text="Удалить" VerticalAlignment="Center"
                                        HorizontalAlignment="Center"/>
                         </DockPanel>
                     </StackPanel>
@@ -217,7 +217,8 @@
                             <materialDesign:PackIcon VerticalAlignment="Center"
                                              HorizontalAlignment="Center"
                                              Kind="ArrowProjectileMultiple"/>
-                            <TextBlock Text="Удалить" VerticalAlignment="Center"
+                            <TextBlock Text="Эмулятор" 
+                                       VerticalAlignment="Center"
                                        HorizontalAlignment="Center"/>
                         </DockPanel>
                     </StackPanel>
