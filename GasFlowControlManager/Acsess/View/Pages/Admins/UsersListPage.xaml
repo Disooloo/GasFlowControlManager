@@ -83,10 +83,10 @@
                                      VerticalAlignment="Center" />
 
                         <TextBox Name="FullName"
-                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                     materialDesign:HintAssist.Hint="Имя"
-                     Width="199" Height="40"
-                     Text="{Binding Path=FullName}" />
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:HintAssist.Hint="Имя"
+                                 Width="199" Height="40"
+                                 Text="{Binding Path=FullName}" />  
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">

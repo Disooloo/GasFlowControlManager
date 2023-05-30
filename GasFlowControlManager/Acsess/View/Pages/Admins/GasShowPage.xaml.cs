@@ -36,7 +36,7 @@ namespace GasFlowControlManager.Acsess.View.Pages.Admins
         }
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.GoBack();
+            Manager.MainFrame.Navigate(new HomeListAgregats(null));
         }
 
         private void edit_Click(object sender, RoutedEventArgs e)
@@ -76,6 +76,11 @@ namespace GasFlowControlManager.Acsess.View.Pages.Admins
             {
                 // Пользователь отменил удаление или закрыл диалоговое окно
             }
+        }
+
+        private void Emulator_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

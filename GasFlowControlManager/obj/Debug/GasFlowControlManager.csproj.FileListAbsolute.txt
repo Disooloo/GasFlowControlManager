@@ -53,4 +53,3 @@ D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlMana
 D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Admins\UserShowPage.baml
 D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Admins\GasShowPage.g.cs
 D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Admins\GasShowPage.baml
-D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\GeneratedInternalTypeHelper.g.cs

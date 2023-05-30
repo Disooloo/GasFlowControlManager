@@ -31,7 +31,7 @@
                 <Grid>
                     <DockPanel HorizontalAlignment="Left"
                                VerticalAlignment="Center">
-                        <TextBlock Text="V0.0.4"
+                        <TextBlock Text="Администратор"
                                    FontSize="32"
                                    Margin="20 0"
                                    Name="userName"
@@ -91,7 +91,7 @@
                      ScrollViewer.HorizontalScrollBarVisibility="Visible">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal"/>
+                        <UniformGrid Columns="4"/>
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
@@ -283,8 +283,9 @@
                                       Height="50"
                                       Foreground="#AFA2FF"
                                       FontSize="24"
-                                      materialDesign:HintAssist.Hint="Наименование"
-                                      Name="NameBox"/>
+                                      Text="{Binding Path=Name}"
+                                      Name="Name"
+                                      materialDesign:HintAssist.Hint="Наименование"/>
                         </DockPanel>
                         <DockPanel>
                             <materialDesign:PackIcon Kind="Company"
@@ -298,8 +299,9 @@
                                       Height="50"
                                       Foreground="#AFA2FF"
                                       FontSize="24"
+                                      Text="{Binding Path=Manufacturer}"
                                       materialDesign:HintAssist.Hint="Производитель"
-                                      Name="ManufacturerBox"/>
+                                      Name="Manufacturer"/>
                         </DockPanel>
                         <DockPanel>
                             <materialDesign:PackIcon Kind="CarBrakeLowPressure"
@@ -313,8 +315,9 @@
                                       Height="50"
                                       Foreground="#AFA2FF"
                                       FontSize="24"
+                                      Text="{Binding Path=MaxFlowRate}"
                                       materialDesign:HintAssist.Hint="Максимальное давление"
-                                      Name="Max_PressureBox"/>
+                                      Name="MaxFlowRate"/>
                         </DockPanel>
                         <DockPanel>
                             <materialDesign:PackIcon Kind="Speedometer"
@@ -328,8 +331,9 @@
                                       Height="50"
                                       Foreground="#AFA2FF"
                                       FontSize="24"
+                                      Text="{Binding Path=MaxPressure}"
                                       materialDesign:HintAssist.Hint="Максимальное скорость потока"
-                                      Name="Max_Flow_Rate"/>
+                                      Name="MaxPressure"/>
                         </DockPanel>
                         <Button HorizontalAlignment="Right"
                                 VerticalAlignment="Center"

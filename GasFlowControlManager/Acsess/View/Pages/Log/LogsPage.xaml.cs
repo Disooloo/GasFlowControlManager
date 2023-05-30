@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using GasFlowControlManager.Acsess.View.Pages.Log;
+using System.Data.Entity;
 
 namespace GasFlowControlManager.Acsess.View.Pages
 {
@@ -35,10 +36,20 @@ namespace GasFlowControlManager.Acsess.View.Pages
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
-                DBGasFlowControlManagerEntities2.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-            DBlist.ItemsSource = DBGasFlowControlManagerEntities2.GetContext().StatesLogs.ToList();
-            LogCount.Text = DBGasFlowControlManagerEntities2.GetContext().StatesLogs.Count().ToString();
+            {
+                var context = DBGasFlowControlManagerEntities2.GetContext();
+                foreach (var entry in context.ChangeTracker.Entries())
+                {
+                    if (entry.State != EntityState.Added)
+                    {
+                        entry.Reload();
+                    }
+                }
+                DBlist.ItemsSource = DBGasFlowControlManagerEntities2.GetContext().StatesLogs.ToList();
+                LogCount.Text = DBGasFlowControlManagerEntities2.GetContext().StatesLogs.Count().ToString();
+            }
         }
+
 
         private void Download_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -63,9 +74,19 @@ namespace GasFlowControlManager.Acsess.View.Pages
                     $"{log.CurrentPressure}{Environment.NewLine}";
             }
 
-            // Укажите путь и имя файла для сохранения
+            // Проверка наличия папки Logs
+            string logsFolderPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Logs");
+            if (!System.IO.Directory.Exists(logsFolderPath))
+            {
+                // Создание папки Logs, если она не существует
+                System.IO.Directory.CreateDirectory(logsFolderPath);
+            }
+
             string userProfilePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string filePath = System.IO.Path.Combine(userProfilePath, @"Desktop\LogsAgr.txt");
+            // Укажите путь и имя файла для сохранения
+            string filePath = System.IO.Path.Combine(logsFolderPath, "LogsAgr.txt");
+
+            // Укажите путь и имя файла для сохранения
             System.IO.File.WriteAllText(filePath, logs);
 
             // Сохраните логи в файл
@@ -82,7 +103,7 @@ namespace GasFlowControlManager.Acsess.View.Pages
 
         private void Back_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Manager.MainFrame.Navigate(new HomeListAgregats());
+            Manager.MainFrame.Navigate(new HomeListAgregats(null));
         }
     }
 }

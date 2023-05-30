@@ -27,7 +27,7 @@ namespace GasFlowControlManager
         {
             InitializeComponent();
 
-            MainFrame.Navigate(new HomeListAgregats());
+            MainFrame.Navigate(new HomeListAgregats(null));
             Manager.MainFrame = MainFrame;
         }
 

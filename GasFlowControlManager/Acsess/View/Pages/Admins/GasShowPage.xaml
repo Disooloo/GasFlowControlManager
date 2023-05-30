@@ -199,6 +199,24 @@
                             <materialDesign:PackIcon VerticalAlignment="Center"
                                              HorizontalAlignment="Center"
                                              Kind="Remove"/>
+                            <TextBlock Text="Эмулятор" VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+                        </DockPanel>
+                    </StackPanel>
+                </Button>
+
+                <Button VerticalAlignment="Bottom"
+                        HorizontalAlignment="Left" 
+                        Margin="10"
+                        Name="Emulator"
+                        Click="Emulator_Click"
+                        Style="{DynamicResource MaterialDesignPaperButton}"
+                        >
+                    <StackPanel>
+                        <DockPanel>
+                            <materialDesign:PackIcon VerticalAlignment="Center"
+                                             HorizontalAlignment="Center"
+                                             Kind="ArrowProjectileMultiple"/>
                             <TextBlock Text="Удалить" VerticalAlignment="Center"
                                        HorizontalAlignment="Center"/>
                         </DockPanel>

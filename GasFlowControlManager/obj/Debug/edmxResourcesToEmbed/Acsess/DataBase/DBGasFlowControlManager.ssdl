@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="255" />
     <Property Name="Manufacturer" Type="varchar" MaxLength="255" />
     <Property Name="MaxPressure" Type="float" />
@@ -38,7 +38,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="GasCompressorId" Type="int" />
     <Property Name="StateName" Type="varchar" MaxLength="255" />
     <Property Name="StartDateTime" Type="datetime" />

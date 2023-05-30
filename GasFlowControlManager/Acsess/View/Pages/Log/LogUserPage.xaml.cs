@@ -60,10 +60,18 @@ namespace GasFlowControlManager.Acsess.View.Pages.Log
                     $"{log.LoginDate}{Environment.NewLine}";
             }
 
-            // Укажите путь и имя файла для сохранения
-            //string filePath = @"D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\Acsess";
+            // Проверка наличия папки Logs
+            string logsFolderPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Logs");
+            if (!System.IO.Directory.Exists(logsFolderPath))
+            {
+                // Создание папки Logs, если она не существует
+                System.IO.Directory.CreateDirectory(logsFolderPath);
+            }
+
             string userProfilePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string filePath = System.IO.Path.Combine(userProfilePath, @"Desktop\LogsUser.txt");
+            // Укажите путь и имя файла для сохранения
+            string filePath = System.IO.Path.Combine(logsFolderPath, "LogsUser.txt");
+
             System.IO.File.WriteAllText(filePath, logs);
 
             // Сохраните логи в файл
