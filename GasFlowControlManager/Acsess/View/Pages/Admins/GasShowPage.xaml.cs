@@ -41,7 +41,7 @@ namespace GasFlowControlManager.Acsess.View.Pages.Admins
 
         private void edit_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new UsersListPage((sender as Button).DataContext as Users));
+            Manager.MainFrame.Navigate(new GasEditorPages((sender as Button).DataContext as GasCompressors));
         }
 
         private void remove_Click(object sender, RoutedEventArgs e)

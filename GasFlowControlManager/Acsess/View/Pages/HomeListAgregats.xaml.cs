@@ -152,31 +152,6 @@ namespace GasFlowControlManager.Acsess.View.Pages
 
         }
 
-        private void SubmitButton_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void NameBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void ManufacturerBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Max_PressureBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Max_Flow_Rate_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void SaveAgr_Click(object sender, RoutedEventArgs e)
         {
             // Проверка наличия ошибок в введенных данных

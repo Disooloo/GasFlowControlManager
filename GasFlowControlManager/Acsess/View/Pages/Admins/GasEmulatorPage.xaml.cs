@@ -52,6 +52,7 @@ namespace GasFlowControlManager.Acsess.View.Pages.Admins
             {
                 MessageBox.Show(errors.ToString());
                 return;
+
             }
 
             _currentGas.Power = Power.IsChecked ?? false;
@@ -85,11 +86,11 @@ namespace GasFlowControlManager.Acsess.View.Pages.Admins
                         GasCompressorId = _currentGas.Id,
                         StateName = _currentGas.Name + " | Изменен | ",
                         EndDateTime = DateTime.Now,
-                        StartDateTime = _currentGas.InstallationDate,
+                        StartDateTime = _currentGas.InstallationDate ?? DateTime.Now,
                         CurrentPower = _currentGas.CurrentFlowRate,
                         CurrentPressure = _currentGas.CurrentPressure
                     };
-
+                    
                     context.StatesLogs.Add(newLog);
 
                     // Сохранение изменений в базе данных

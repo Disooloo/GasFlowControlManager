@@ -55,3 +55,9 @@ D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlMana
 D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Admins\GasShowPage.baml
 D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Admins\GasEmulatorPage.g.cs
 D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Admins\GasEmulatorPage.baml
+D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Admins\GasEditorPages.g.cs
+D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\Admins\GasEditorPages.baml
+D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Windows\UserWindows.g.cs
+D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\UserPagesLink\UserHomePage.g.cs
+D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Pages\UserPagesLink\UserHomePage.baml
+D:\Project\Git\Gas Flow Control Manager\GasFlowControlManager\GasFlowControlManager\obj\Debug\Acsess\View\Windows\UserWindows.baml

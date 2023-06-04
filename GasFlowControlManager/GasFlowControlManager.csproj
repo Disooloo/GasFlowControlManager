@@ -87,6 +87,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Acsess\View\Pages\Admins\GasEditorPages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Acsess\View\Pages\Admins\GasEmulatorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,7 +119,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Acsess\View\Pages\UserPagesLink\UserHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Acsess\View\Windows\AuthWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Acsess\View\Windows\UserWindows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -157,6 +169,10 @@
       <DependentUpon>DBGasFlowControlManager.tt</DependentUpon>
     </Compile>
     <Compile Include="Acsess\Managers\EfficiencyData.cs" />
+    <Compile Include="Acsess\Managers\UserManager.cs" />
+    <Compile Include="Acsess\View\Pages\Admins\GasEditorPages.xaml.cs">
+      <DependentUpon>GasEditorPages.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Acsess\View\Pages\Admins\GasEmulatorPage.xaml.cs">
       <DependentUpon>GasEmulatorPage.xaml</DependentUpon>
     </Compile>
@@ -178,8 +194,14 @@
     <Compile Include="Acsess\View\Pages\Log\LogUserPage.xaml.cs">
       <DependentUpon>LogUserPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Acsess\View\Pages\UserPagesLink\UserHomePage.xaml.cs">
+      <DependentUpon>UserHomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Acsess\View\Windows\AuthWindows.xaml.cs">
       <DependentUpon>AuthWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Acsess\View\Windows\UserWindows.xaml.cs">
+      <DependentUpon>UserWindows.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -250,6 +272,7 @@
       <LastGenOutput>DBGasFlowControlManager.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

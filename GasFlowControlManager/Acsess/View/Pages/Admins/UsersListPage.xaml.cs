@@ -32,7 +32,6 @@ namespace GasFlowControlManager.Acsess.View.Pages.Admins
                 _currentTeams = selectTeams;
 
             DataContext = _currentTeams;
-
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

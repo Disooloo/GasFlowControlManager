@@ -24,6 +24,7 @@ namespace GasFlowControlManager.Acsess.View.Pages.Admins
         private Users _currentTeam = new Users();
         public UserShowPage(Users selectTeam)
         {
+
             InitializeComponent();
 
             if (selectTeam != null)

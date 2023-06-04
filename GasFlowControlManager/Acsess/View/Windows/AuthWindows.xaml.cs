@@ -89,10 +89,11 @@ namespace GasFlowControlManager.Acsess.View.Windows
                     // Добавление записи в ParametersLogs
                     db.ParametersLogs.Add(parametersLog);
                     db.SaveChanges();
-                    MainWindow mainWindow = new MainWindow();
+                    UserWindows mainWindow = new UserWindows();
                     mainWindow.Show();
                     this.Close();
                 }
+                
 
                 else if (login == "" && pass == "" && authUser == null)
                     MessageBox.Show("Строка не может быть пустой");
