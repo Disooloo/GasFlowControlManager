@@ -4,7 +4,7 @@ Dump -> https://github.com/Disooloo/GasFlowControlManager/tree/CardList/Dump
 
 Video for youtybe -> https://youtu.be/w0PMGUyHeB0
 
-![image](https://github.com/Disooloo/GasFlowControlManager/assets/44940699/fa8feb95-4185-461c-b490-5e1784feabe1)
+![image](https://github.com/Disooloo/GasFlowControlManager/assets/44940699/4787a7cb-aa23-41f3-96b6-7c8ecaf9f797)
 
 ![image](https://github.com/Disooloo/GasFlowControlManager/assets/44940699/ec47f6f0-0697-419c-a1b4-a075c32045a3)
 
